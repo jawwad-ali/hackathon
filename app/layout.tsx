@@ -1,18 +1,32 @@
-import './globals.css'
+// import "./globals.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html lang="en">
+//       <head />
+//       <body>
+//         {children}
+//       </body>
+//     </html>
+//   );
+// }
+
+import { FC, PropsWithChildren } from "react";
+import FlowbiteContext from "./context/FlowbiteContext";
+import "./globals.css";
+
+const RootLayout: FC<PropsWithChildren> = function ({ children }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
+      <body>
+        <FlowbiteContext>{children}</FlowbiteContext>
+      </body>
     </html>
-  )
-}
+  ); 
+};
+
+export default RootLayout;
