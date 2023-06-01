@@ -42,10 +42,14 @@ const HeroSection = () => {
         </Button>
 
         <div className="mt-5 flex flex-wrap justify-between py-5 w-[90%]">
-          <Image src={FeaturedOne} alt="Featured One" />
-          <Image src={FeaturedTwo} alt="Featured Two" />
-          <Image src={FeaturedThree} alt="Featured Three" />
-          <Image src={FeaturedFour} alt="Featured Four" />
+          <div className="flex justify-between lg:justify-around w-full lg:w-[50%] mb-4">
+            <Image src={FeaturedOne} alt="Featured One" />
+            <Image src={FeaturedTwo} alt="Featured Two" />
+          </div>
+          <div className="flex justify-between lg:justify-around w-full lg:w-[50%] mb-4">
+            <Image src={FeaturedThree} alt="Featured Three" />
+            <Image src={FeaturedFour} alt="Featured Four" />
+          </div>
         </div>
       </div>
 

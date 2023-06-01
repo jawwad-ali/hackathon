@@ -43,7 +43,7 @@ const NavigationBar = () => {
         <Navbar.Link active href="/navbars">
           Home
         </Navbar.Link>
-
+ 
         <Navbar.Link href="/navbars">Female</Navbar.Link>
         <Navbar.Link href="/navbars">Male</Navbar.Link>
         <Navbar.Link href="/navbars">Kids</Navbar.Link>
