@@ -3,7 +3,7 @@
 import { Navbar, TextInput } from "flowbite-react";
 import Image from "next/image";
 
-import { FaCartPlus, FaSearch } from "react-icons/fa"; 
+import { FaCartPlus, FaSearch } from "react-icons/fa";
 import Logo from "../images/logo.webp";
 
 import { Sora } from "next/font/google";
@@ -25,9 +25,10 @@ const NavigationBar = () => {
           placeholder="Search"
           required
           type="text"
+          className="hidden lg:block"
         />
         <div
-          className="relative flex p-3 bg-[#f1f1f1] rounded-3xl items-center justify-center 
+          className="relative flex p-3 bg-[#f1f1f1] rounded-3xl items-center justify-center  
           transform hover:scale-125 transition-transform duration-400 ease-in-out hover:cursor-pointer ml-2 md:ml-0"
         >
           <FaCartPlus className="text-gray-500 text-2xl" />
@@ -42,10 +43,20 @@ const NavigationBar = () => {
         <Navbar.Link active href="/navbars">
           Home
         </Navbar.Link>
+
         <Navbar.Link href="/navbars">Female</Navbar.Link>
         <Navbar.Link href="/navbars">Male</Navbar.Link>
         <Navbar.Link href="/navbars">Kids</Navbar.Link>
         <Navbar.Link href="/navbars">All Products</Navbar.Link>
+
+        <TextInput
+          className="mt-4 flex lg:hidden"
+          icon={FaSearch}
+          id="search"
+          placeholder="Search"
+          required
+          type="text"
+        />
       </Navbar.Collapse>
     </Navbar>
   );
