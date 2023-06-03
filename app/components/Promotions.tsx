@@ -4,6 +4,10 @@ import { Sora } from "next/font/google";
 import Image from "next/image";
 
 import ProductOne from "../images/product_one.webp";
+import PromotionCard from "./PromotionCard";
+
+import PromotionOneImage from "../images/promotion_one.webp";
+import PromotionTwoImage from "../images/promotion_two.webp";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -24,7 +28,7 @@ const Promotions = () => {
       </div>
 
       {/* Products */}
-      <div className="flex w-full">
+      <div className="flex lg:flex-row flex-col w-full">
         {/* Left Side */}
         <div className="flex flex-col gap-2 mt-14 mx-8 w-full lg:w-1/2">
           <div className="bg-[#d6d6d8] lg:grid gap-2 lg:justify-between">
@@ -73,8 +77,27 @@ const Promotions = () => {
               </button>
             </div>
           </div>
+        </div>
 
-          {/* Right Side */}
+        {/* Right Side */}
+        <div
+          className="lg:w-1/2 flex flex-col lg:flex-row pt-6 px-8 lg:px-0 mt-8 
+         w-full"
+        >
+          <PromotionCard
+            productName="Flex Sweatshirt"
+            currentPrice={75}
+            prevPrice={100}
+            bgColor={"bg-[#efe1c7]"}
+            picture={PromotionOneImage}
+          />
+          <PromotionCard
+            bgColor="bg-[#d7d7d9]"
+            productName="Flex Push Button Bomber"
+            currentPrice={190}
+            prevPrice={225}
+            picture={PromotionTwoImage}
+          />
         </div>
       </div>
     </div>
