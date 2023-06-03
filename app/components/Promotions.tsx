@@ -9,7 +9,7 @@ const sora = Sora({ subsets: ["latin"] });
 
 const Promotions = () => {
   return (
-    <div className="my-28">
+    <div className="my-10 lg:my-28">
       <div className="text-center ">
         <span
           className={`${sora.className} font-bold uppercase text-center text-xs text-[#0062f5] tracking-wider`}
@@ -26,21 +26,22 @@ const Promotions = () => {
       {/* Products */}
       <div className="flex w-full">
         {/* Left Side */}
-        <div className="flex flex-col gap-2 mt-14 mx-8">
+        <div className="flex flex-col gap-2 mt-14 mx-8 w-full lg:w-1/2">
+
           <div className="bg-[#d6d6d8] grid gap-2 justify-between">
-            <div className="w-full flex justify-center items-center">
-              <div className="py-10">
+            <div className="w-full flex justify-center items-center ">
+              <div className="py-10 w-full">
                 <h3
-                  className={`${sora.className} px-6 font-bold text-2xl lg:text-3xl leading-9 text-[#212121]`}
+                  className={`${sora.className} px-6 font-bold text-3xl leading-9 text-[#212121]`}
                 >
                   Get UP TO 60%
                 </h3>
-                <p className="text-base lg:text-lg -tracking-tight px-6">
+                <p className="text-lg -tracking-tight px-6">
                   For the summer season
                 </p>
               </div>
 
-              <div className="-ml-14 w-[75%]">
+              <div className="flex justify-end w-full lg:-ml-14 lg:w-[75%]">
                 <Image
                   src={ProductOne}
                   alt="Product"
