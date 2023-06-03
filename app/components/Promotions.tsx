@@ -27,12 +27,11 @@ const Promotions = () => {
       <div className="flex w-full">
         {/* Left Side */}
         <div className="flex flex-col gap-2 mt-14 mx-8 w-full lg:w-1/2">
-
-          <div className="bg-[#d6d6d8] grid gap-2 justify-between">
-            <div className="w-full flex justify-center items-center ">
-              <div className="py-10 w-full">
+          <div className="bg-[#d6d6d8] lg:grid gap-2 lg:justify-between">
+            <div className="w-full px-4 flex flex-col lg:flex-row justify-center items-center">
+              <div className="lg:w-1/2 w-full text-center lg:text-start mt-4 lg:mt-0">
                 <h3
-                  className={`${sora.className} px-6 font-bold text-2xl md:text-3xl leading-9 text-[#212121]`}
+                  className={`${sora.className} px-0 lg:px-6 font-bold text-2xl md:text-3xl leading-9 text-[#212121]`}
                 >
                   Get UP TO 60%
                 </h3>
@@ -41,7 +40,7 @@ const Promotions = () => {
                 </p>
               </div>
 
-              <div className="flex justify-end w-full lg:-ml-14 lg:w-[75%]">
+              <div className="flex lg:justify-start justify-center items-center w-full  lg:w-[75%]">
                 <Image
                   src={ProductOne}
                   alt="Product"
