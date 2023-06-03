@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "../../components/ui/button";
 import { ShoppingCart } from "lucide-react";
 
-import { Sora } from "next/font/google";
+import { Sora } from "next/font/google"; 
 
 import HeroSectionImage from "../images/hero_section_image.webp";
 import FeaturedOne from "../images/featured_one.webp";
@@ -27,7 +27,7 @@ const HeroSection = () => {
         >
           An Industrial Take on Streetwear
         </h1>
-        <div className="mt-11 w-[85%] lg:w-[60%]">
+        <div className="mt-8 w-[85%] lg:w-[60%]">
           <p className={`${sora.className} text-[#666] text-base`}>
             Anyone can beat you but no one can beat your outfit as long as you
             wear Dine outfits.
