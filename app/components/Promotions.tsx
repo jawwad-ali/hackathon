@@ -32,11 +32,11 @@ const Promotions = () => {
             <div className="w-full flex justify-center items-center ">
               <div className="py-10 w-full">
                 <h3
-                  className={`${sora.className} px-6 font-bold text-3xl leading-9 text-[#212121]`}
+                  className={`${sora.className} px-6 font-bold text-2xl md:text-3xl leading-9 text-[#212121]`}
                 >
                   Get UP TO 60%
                 </h3>
-                <p className="text-lg -tracking-tight px-6">
+                <p className="text-base md:text-lg -tracking-tight px-6">
                   For the summer season
                 </p>
               </div>
