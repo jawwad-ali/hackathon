@@ -14,7 +14,7 @@ const sora = Sora({ subsets: ["latin"] });
 const Promotions = () => {
   return (
     <div className="my-10 lg:my-28">
-      <div className="text-center ">
+      <div className="text-center">
         <span
           className={`${sora.className} font-bold uppercase text-center text-xs text-[#0062f5] tracking-wider`}
         >
@@ -28,9 +28,9 @@ const Promotions = () => {
       </div>
 
       {/* Products */}
-      <div className="flex lg:flex-row flex-col w-full">
+      <div className="flex lg:flex-row flex-col w-full -mt-8">
         {/* Left Side */}
-        <div className="flex flex-col gap-2 mt-14 mx-8 w-full lg:w-1/2">
+        <div className="flex flex-col gap-2 mt-14 px-8 w-full lg:w-1/2">
           <div className="bg-[#d6d6d8] lg:grid gap-2 lg:justify-between">
             <div className="w-full px-4 flex flex-col lg:flex-row justify-center items-center">
               <div className="lg:w-1/2 w-full text-center lg:text-start mt-4 lg:mt-0">
@@ -80,10 +80,7 @@ const Promotions = () => {
         </div>
 
         {/* Right Side */}
-        <div
-          className="lg:w-1/2 flex flex-col lg:flex-row pt-6 px-8 lg:px-0 mt-8 
-         w-full"
-        >
+        <div className="lg:w-1/2 flex flex-col lg:flex-row pt-6 px-8 lg:px-0 mt-8 w-full">
           <PromotionCard
             productName="Flex Sweatshirt"
             currentPrice={75}
