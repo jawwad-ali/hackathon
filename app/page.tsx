@@ -1,3 +1,4 @@
+import Features from "./components/Features";
 import HeroSection from "./components/HeroSection";
 import NavigationBar from "./components/NavigationBar";
 import Products from "./components/Products";
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <Promotions />
       <Products />
+      <Features />
     </div>
   );
 }

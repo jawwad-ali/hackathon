@@ -57,7 +57,7 @@ const HeroSection = () => {
       <div className="relative w-[600px] h-[600px] mt-36 ml-8 lg:flex flex-1 rounded-[50%] bg-[#ffece3] hidden">
         <div className="absolute -top-[5%]">
           <Image
-            src={HeroSectionImage}
+            src={HeroSectionImage} 
             loading="eager" 
             alt="Hero Section Image"
             width="650"
