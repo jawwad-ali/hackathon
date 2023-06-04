@@ -3,29 +3,20 @@ import { Sora } from "next/font/google";
 
 import Image from "next/image";
 
-import ProductOne from "../images/product_one.webp";
 import PromotionCard from "./PromotionCard";
 
+import ProductOne from "../images/product_one.webp";
 import PromotionOneImage from "../images/promotion_one.webp";
 import PromotionTwoImage from "../images/promotion_two.webp";
+import Heading from "./Heading";
 
 const sora = Sora({ subsets: ["latin"] });
 
 const Promotions = () => {
   return (
     <div className="my-10 lg:my-28">
-      <div className="text-center">
-        <span
-          className={`${sora.className} font-bold uppercase text-center text-xs text-[#0062f5] tracking-wider`}
-        >
-          promotions
-        </span>
-        <h2
-          className={`${sora.className} font-bold text-[32px] pt-5 tracking-wider text-[#212121]`}
-        >
-          Our Promotions Events
-        </h2>
-      </div>
+
+      <Heading subtitle="promotions" mainHeading="Our Promotions Events" />
 
       {/* Products */}
       <div className="flex lg:flex-row flex-col w-full -mt-8">

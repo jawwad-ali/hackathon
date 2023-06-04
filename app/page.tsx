@@ -1,5 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import NavigationBar from "./components/NavigationBar";
+import Products from "./components/Products";
 import Promotions from "./components/Promotions";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <NavigationBar />
       <HeroSection />
       <Promotions />
+      <Products />
     </div>
   );
 }
