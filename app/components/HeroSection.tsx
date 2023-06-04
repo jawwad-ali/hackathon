@@ -20,7 +20,7 @@ const HeroSection = () => {
         <Button
           className={`${sora.className} text-md h-[48px] w-[120px] bg-[#e1edff] text-blue-600 font-bold`}
         >
-          Sale 70%
+          Sale 70% 
         </Button>
         <h1
           className={`${sora.className} pt-8 font-bold text-5xl lg:text-6xl leading-[55px] text-[#212121]`}
@@ -58,6 +58,7 @@ const HeroSection = () => {
         <div className="absolute -top-[5%]">
           <Image
             src={HeroSectionImage}
+            loading="eager" 
             alt="Hero Section Image"
             width="650"
             height="650"
