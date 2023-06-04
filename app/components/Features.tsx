@@ -52,8 +52,9 @@ const Features = () => {
           </div>
 
           {/* Boxes */}
-          {obj.map((data: MyObject) => (
+          {obj.map((data: MyObject, i: any) => (
             <div
+              key={i}
               className="mt-8 w-[82%] lg:w-[75%] mx-auto lg:mx-4"
               style={{ zIndex: 2 }}
             >
