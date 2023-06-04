@@ -11,10 +11,7 @@ const Products = () => {
       {/* Heading Component */}
       <Heading subtitle="PRODUCTS" mainHeading="Check What We Have" />
 
-      <div
-        className="flex flex-col lg:flex-row"
-        style={{ padding: "2rem 0 2rem 1.3rem" }}
-      >
+      <div className="flex flex-col lg:flex-row mt-8">
         <div className="transform transition-all lg:hover:scale-110 ease-in-out mb-2 lg:mb-0 mx-auto">
           <ProductCard
             name="Brushed Raglan SweatShirt"

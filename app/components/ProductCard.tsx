@@ -13,7 +13,7 @@ const sora = Sora({ subsets: ["latin"] });
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, picture, price }) => {
   return (
-    <div className="flex flex-col h-full mx-auto">
+    <div className="flex flex-col h-full mx-auto hover:cursor-pointer">
       <div className="h-full lg:border lg:border-gray-400">
         <Image src={picture} alt="Prodcut Image" />
       </div>
