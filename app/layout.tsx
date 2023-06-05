@@ -22,11 +22,12 @@ import "./globals.css";
 const RootLayout: FC<PropsWithChildren> = function ({ children }) {
   return (
     <html lang="en">
+      <head />
       <body>
         <FlowbiteContext>{children}</FlowbiteContext>
       </body>
     </html>
-  ); 
+  );
 };
 
 export default RootLayout;
