@@ -1,34 +1,26 @@
 import "./globals.css";
 import FlowbiteContext from "./context/FlowbiteContext";
+import NavigationBar from "./components/NavigationBar";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
-}) { 
+  children: React.ReactNode; 
+}) {
   return (
     <html lang="en">
-      <head></head> 
+      <head>
+        <title>Hackathon</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="description" content="Hackathon Project" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body>
-        <FlowbiteContext>{children}</FlowbiteContext>
+        <FlowbiteContext>
+          <NavigationBar />
+          {children} 
+        </FlowbiteContext>
       </body>
     </html>
   );
 }
-
-// import { FC, PropsWithChildren } from "react";
-// import FlowbiteContext from "./context/FlowbiteContext";
-// import "./globals.css";
-
-// const RootLayout: FC<PropsWithChildren> = function ({ children }) {
-//   return (
-//     <html lang="en">
-//       <head />
-//       <body>
-//         <FlowbiteContext>{children}</FlowbiteContext>
-//       </body>
-//     </html>
-//   );
-// };
-
-// export default RootLayout;

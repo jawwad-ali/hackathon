@@ -7,12 +7,13 @@ import { FaCartPlus, FaSearch } from "react-icons/fa";
 import Logo from "../images/logo.webp";
 
 import { Sora } from "next/font/google";
+import Link from "next/link";
 
 const sora = Sora({ subsets: ["latin"] });
 
 const NavigationBar = () => {
   return (
-    <Navbar fluid rounded className="border-none">
+    <Navbar fluid rounded className="border-none max-w-6xl mx-auto">
       <Navbar.Brand href="/">
         <Image src={Logo} alt="Logo" height={25} width={140} />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
@@ -40,14 +41,23 @@ const NavigationBar = () => {
       </div>
 
       <Navbar.Collapse className={`${sora.className} text-xl`}>
-        <Navbar.Link active href="/navbars">
+        <Navbar.Link active href="/" as={Link}>
           Home
         </Navbar.Link>
- 
-        <Navbar.Link href="/navbars">Female</Navbar.Link>
-        <Navbar.Link href="/navbars">Male</Navbar.Link>
-        <Navbar.Link href="/navbars">Kids</Navbar.Link>
-        <Navbar.Link href="/navbars">All Products</Navbar.Link>
+
+        <Navbar.Link as={Link} href="/female">
+          Female
+        </Navbar.Link>
+
+        <Navbar.Link href="/male" as={Link}>
+          Male
+        </Navbar.Link>
+        <Navbar.Link href="/kids" as={Link}>
+          Kids
+        </Navbar.Link>
+        <Navbar.Link href="/allproducts" as={Link}>
+          All Products
+        </Navbar.Link>
 
         <TextInput
           className="mt-4 flex lg:hidden"
