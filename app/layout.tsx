@@ -1,25 +1,11 @@
-// import "./globals.css";
-
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   return (
-//     <html lang="en">
-//       <head />
-//       <body>
-//         {children}
-//       </body>
-//     </html>
-//   );
-// }
-
-import { FC, PropsWithChildren } from "react";
-import FlowbiteContext from "./context/FlowbiteContext";
 import "./globals.css";
+import FlowbiteContext from "./context/FlowbiteContext";
 
-const RootLayout: FC<PropsWithChildren> = function ({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) { 
   return (
     <html lang="en">
       <head />
@@ -28,6 +14,21 @@ const RootLayout: FC<PropsWithChildren> = function ({ children }) {
       </body>
     </html>
   );
-};
+}
 
-export default RootLayout;
+// import { FC, PropsWithChildren } from "react";
+// import FlowbiteContext from "./context/FlowbiteContext";
+// import "./globals.css";
+
+// const RootLayout: FC<PropsWithChildren> = function ({ children }) {
+//   return (
+//     <html lang="en">
+//       <head />
+//       <body>
+//         <FlowbiteContext>{children}</FlowbiteContext>
+//       </body>
+//     </html>
+//   );
+// };
+
+// export default RootLayout;
