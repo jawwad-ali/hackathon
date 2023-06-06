@@ -11,7 +11,6 @@ import FeaturedTwo from "../images/featured_two.webp";
 import FeaturedThree from "../images/featured_three.webp";
 import FeaturedFour from "../images/featured_four.webp";
 
-// const sora = Sora({ subsets: ["latin"] });
 const sora = Sora({
   display: 'swap',
   subsets: ["latin"]
