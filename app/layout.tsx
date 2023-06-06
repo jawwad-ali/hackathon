@@ -8,14 +8,15 @@ export default function RootLayout({
   children: React.ReactNode; 
 }) {
   return (
-    <html lang="en">
-      <head>
+    <html lang="en"> 
+      {/* <head>
         <title>Hackathon</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="description" content="Hackathon Project" />
         <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body>
+      </head> */}
+      <head />
+      <body> 
         <FlowbiteContext>
           <NavigationBar />
           {children} 
