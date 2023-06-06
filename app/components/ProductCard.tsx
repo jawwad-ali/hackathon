@@ -9,7 +9,10 @@ interface ProductCardProps {
   picture: StaticImageData;
 }
 
-const sora = Sora({ subsets: ["latin"] });
+const sora = Sora({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, picture, price }) => {
   return (

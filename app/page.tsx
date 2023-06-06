@@ -6,9 +6,9 @@ import Promotions from "./components/Promotions";
 export default function Home() {
   return (
     <div className="max-w-6xl mx-auto">
-      <HeroSection /> 
+      <HeroSection />  
       <Promotions />
-      <Products />
+      <Products /> 
       <Features />
     </div> 
   );

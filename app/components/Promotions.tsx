@@ -10,12 +10,14 @@ import PromotionOneImage from "../images/promotion_one.webp";
 import PromotionTwoImage from "../images/promotion_two.webp";
 import Heading from "./Heading";
 
-const sora = Sora({ subsets: ["latin"] });
+const sora = Sora({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const Promotions = () => {
   return (
     <div className="my-10 lg:my-28">
-
       <Heading subtitle="promotions" mainHeading="Our Promotions Events" />
 
       {/* Products */}

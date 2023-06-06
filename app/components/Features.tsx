@@ -1,6 +1,11 @@
 import { Sora } from "next/font/google";
 
-const sora = Sora({ subsets: ["latin"] });
+import { Button } from "../../components/ui/button";
+
+import FeatureOne from "../images/feature_one.webp";
+import Image from "next/image";
+
+const sora = Sora({ subsets: ["latin"], display: "swap" });
 
 interface MyObject {
   title: string;
@@ -28,7 +33,7 @@ const obj: MyObject[] = [
 
 const Features = () => {
   return (
-    <div>
+    <div className="mb-2">
       <div className="flex justify-center lg:justify-end w-full pt-0 pl-20 lg:pl-32 lg:pb-8">
         <h1
           className={`${sora.className} font-bold text-[2.75rem] leading-[70px] lg:leading-[55px] tracking-[.03em] text-[#212121] 
@@ -64,14 +69,33 @@ const Features = () => {
                 {data.title}
               </h3>
               <p
-                className={`text-base font-thin leading-[22px] tracking-[.05em] text-[#212121] ${sora.className}`}
+                className={`text-base font-light leading-[22px] tracking-[.05em] text-[#212121] ${sora.className}`}
               >
                 {data.desc}
               </p>
             </div>
           ))}
         </div>
-        <div>Right Side</div>
+
+        {/* Right Side */}
+        <div className="flex lg:flex-row flex-col justify-center items-center">
+          <Image width="300" height="350" src={FeatureOne} alt="Feature One" />
+          <div className="flex flex-col gap-8 justify-center items-center p-6">
+            <p
+              className={`${sora.className} font-light text-base leading-6 text-[#212121] text-justify`}
+            >
+              This piece is ethically crafted in our small family-owned workshop
+              in Peru with unmatched attention to detail and care. The Natural
+              color is the actual natural color of the fiber, undyed and 100%
+              traceable.
+            </p>
+            <Button
+              className={`${sora.className} text-md h-[48px] w-[120px] bg-[#212121] text-white font-bold`}
+            >
+              See All Products
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

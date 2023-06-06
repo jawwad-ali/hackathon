@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "../../components/ui/button";
 import { ShoppingCart } from "lucide-react";
 
-import { Sora } from "next/font/google";  
+import { Sora } from "next/font/google";   
 
 import HeroSectionImage from "../images/hero_section_image.webp";
 import FeaturedOne from "../images/featured_one.webp";
@@ -11,7 +11,11 @@ import FeaturedTwo from "../images/featured_two.webp";
 import FeaturedThree from "../images/featured_three.webp";
 import FeaturedFour from "../images/featured_four.webp";
 
-const sora = Sora({ subsets: ["latin"] });
+// const sora = Sora({ subsets: ["latin"] });
+const sora = Sora({
+  display: 'swap',
+  subsets: ["latin"]
+})
 
 const HeroSection = () => {
   return (

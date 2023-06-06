@@ -15,7 +15,7 @@ export default function RootLayout({
         <meta name="description" content="Hackathon Project" />
         <link rel="icon" href="/favicon.ico" />
       </head> */}
-      <head />
+      <head /> 
       <body> 
         <FlowbiteContext>
           <NavigationBar />

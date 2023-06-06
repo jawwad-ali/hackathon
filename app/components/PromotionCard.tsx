@@ -11,7 +11,7 @@ interface PromotionCardProps {
   bgColor: string;
 }
 
-const sora = Sora({ subsets: ["latin"] });
+const sora = Sora({ subsets: ["latin"], display: "swap" });
 
 const PromotionCard: React.FC<PromotionCardProps> = ({
   productName,
