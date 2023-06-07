@@ -15,7 +15,7 @@ const Products = () => {
         <div className="transform transition-all lg:hover:scale-110 ease-in-out mb-2 lg:mb-0 mx-auto">
           <ProductCard
             name="Brushed Raglan SweatShirt"
-            price={195}
+            price={195} 
             picture={ProductProOne}
           />
         </div>

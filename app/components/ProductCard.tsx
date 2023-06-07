@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, picture, price }) => {
   return (
     <div className="flex flex-col h-full mx-auto hover:cursor-pointer">
       <div className="h-full lg:border lg:border-gray-400">
-        <Image src={picture} alt="Prodcut Image" />
+        <Image src={picture} alt="Prodcut Image" loading="lazy" />
       </div>
       <div>
         <p

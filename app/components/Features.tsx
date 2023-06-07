@@ -8,7 +8,7 @@ import Image from "next/image";
 const sora = Sora({ subsets: ["latin"], display: "swap" });
 
 interface MyObject {
-  title: string;
+  title: string; 
   desc: string;
 }
 
@@ -79,7 +79,7 @@ const Features = () => {
 
         {/* Right Side */}
         <div className="flex lg:flex-row flex-col justify-center items-center">
-          <Image width="300" height="350" src={FeatureOne} alt="Feature One" />
+          <Image width="300" height="350" src={FeatureOne} alt="Feature One" loading="lazy" />
           <div className="flex flex-col gap-8 justify-center items-center p-6">
             <p
               className={`${sora.className} font-light text-base leading-6 text-[#212121] text-justify`}
