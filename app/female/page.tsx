@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const Female = () => {
-  return (
-    <div>Female</div>
-  )
+import { client } from "../../sanity/lib/client";
+
+async function getFeMaleProducts() {
+  const products = await client.fetch(
+    `*[_type=='product' && category=='female']`
+  );
+  return products;
 }
 
-export default Female
+const Female = async () => {
+  const prod = await getFeMaleProducts();
+  // console.log("PRODUCTS", prod);
+
+  return <div>Female</div>;
+};
+
+export default Female;

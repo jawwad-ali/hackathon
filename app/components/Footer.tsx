@@ -39,9 +39,9 @@ const footer: FooterProps[] = [
 const Footer = () => {
   return (
     <div
-      className={`${sora.className} mt-16 max-w-6xl grid lg:grid-cols-4 grid-cols-1 gap-2 justify-between `}
+      className={`${sora.className} mt-16 max-w-6xl mx-auto grid lg:grid-cols-4 grid-cols-1 gap-2 justify-between `}
     >
-      <div className="m-11">
+      <div className="m-11"> 
         <div className="mb-6">
           <Image
             width={180} 
