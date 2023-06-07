@@ -58,8 +58,8 @@ const Footer = () => {
       </div>
 
       {/* Two */}
-      {footer.map((data) => (
-        <div className="m-11">
+      {footer.map((data,i) => (
+        <div className="m-11" key={i}>
           <div className="mb-6">
             <h4 className={`${sora.className} text-xl text-[#666] font-bold`}>
               {data.title}
