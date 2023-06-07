@@ -14,7 +14,7 @@ const Newsletter = () => {
         Subscribe Our Newsletter
       </h3>
       <p className="mb-8 font-light text-base text-[#212121]">
-        Get the latest information and promo offers directly
+        Get the latest information and promo offers directlyy.
       </p>
 
       <form className="lg:flex block">
