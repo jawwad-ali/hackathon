@@ -1,4 +1,5 @@
 import Features from "./components/Features";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import Newsletter from "./components/Newsletter";
 import Products from "./components/Products";
@@ -12,6 +13,7 @@ export default function Home() {
       <Products /> 
       <Features />
       <Newsletter />
+      <Footer />
     </div> 
   );
 }
