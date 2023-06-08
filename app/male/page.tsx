@@ -28,8 +28,8 @@ const Male = async () => {
 
   return (
     <div className="grid grid-cols-4 mt-16 max-w-6xl mx-auto mb-24">
-      {products.map((data: any) => (
-        <div className="flex flex-col h-full mx-auto hover:cursor-pointer">
+      {products.map((data: any , i:any) => (
+        <div className="flex flex-col h-full mx-auto hover:cursor-pointer" key={i}>
           <div className="h-full lg:border lg:border-gray-400">
             <Image
               src={urlFor(data.image).width(250).url()}
