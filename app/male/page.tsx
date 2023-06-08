@@ -27,9 +27,9 @@ const Male = async () => {
   const products = await getMaleProducts();
 
   return (
-    <div className="grid grid-cols-4 mt-16 max-w-6xl mx-auto mb-24">
+    <div className="grid lg:grid-cols-4 grid-cols-1  mt-16 max-w-6xl mx-auto mb-24">
       {products.map((data: any , i:any) => (
-        <div className="flex flex-col h-full mx-auto hover:cursor-pointer" key={i}>
+        <div className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0" key={i}>
           <div className="h-full lg:border lg:border-gray-400">
             <Image
               src={urlFor(data.image).width(250).url()}
@@ -41,17 +41,17 @@ const Male = async () => {
           </div>
           <div>
             <p
-              className={`${sora.className} font-bold pt-2 text-base tracking-wide leading-6`}
+              className={`${sora.className} font-bold lg:pt-2 text-base tracking-wide leading-6`}
             >
               {data.name}
             </p>
             <p
-              className={`${sora.className} font-bolder pt-2 text-[#888] text-base tracking-wide leading-6`}
+              className={`${sora.className} font-bolder lg:pt-2 pt-1 text-[#888] text-base tracking-wide leading-6`}
             >
               {data.product_type}
             </p>
             <p
-              className={`${sora.className} font-bold pt-2 text-base tracking-wide leading-6`}
+              className={`${sora.className} font-bold lg:pt-2 pt-1 text-base tracking-wide leading-6`}
             >
               ${data.price}.00
             </p>
