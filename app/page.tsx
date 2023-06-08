@@ -1,4 +1,3 @@
-import { client } from "../sanity/lib/client";
 import Features from "./components/Features";
 import HeroSection from "./components/HeroSection";
 import Newsletter from "./components/Newsletter"; 
