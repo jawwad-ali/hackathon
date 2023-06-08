@@ -38,7 +38,7 @@ const footer: FooterProps[] = [
 
 const Footer = () => {
   return (
-    <div className="w-full border-t border-gray-300">
+    <div className="w-full border-t border-gray-300 relative mt-[32rem] md:mt-[36rem] lg:mt-32">
       <div
         className={`${sora.className} mt-16 max-w-6xl mx-auto grid lg:grid-cols-4 grid-cols-1 gap-2 justify-between `}
       >
