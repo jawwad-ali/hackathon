@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Sora } from "next/font/google";
 
 const sora = Sora({
-  subsets: ["latin"], 
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -14,7 +14,7 @@ async function getFeMaleProducts() {
   const products = await client.fetch(
     `*[_type=='product' && category=='female']`
   );
-  return products; 
+  return products;
 }
 
 // Function for reteriving image
@@ -25,16 +25,19 @@ function urlFor(source: any) {
 
 const Female = async () => {
   const prod = await getFeMaleProducts();
- 
+
   return (
-    <div className="grid lg:grid-cols-4 grid-cols-1  mt-16 max-w-6xl mx-auto mb-24">
-      {prod.map((data: any,i:any) => (
-        <div key={i} className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0">
+    <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto mb-24">
+      {prod.map((data: any, i: any) => (
+        <div
+          key={i}
+          className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0"
+        >
           <div className="h-full lg:border lg:border-gray-400">
             <Image
               src={urlFor(data.image).width(250).url()}
-              alt="Product Image" 
-              loading="lazy" 
+              alt="Product Image"
+              loading="lazy"
               width={250}
               height={250}
             />

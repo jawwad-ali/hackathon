@@ -6,7 +6,7 @@ import Promotions from "./components/Promotions";
 
 export default async function Home() {
   return ( 
-    <div className="max-w-6xl mx-auto"> 
+    <div className="max-w-6xl mx-auto">  
       <HeroSection />  
       <Promotions /> 
       <Products /> 

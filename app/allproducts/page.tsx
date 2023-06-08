@@ -10,10 +10,8 @@ const sora = Sora({
   display: "swap",
 });
 
-async function getMaleProducts() {
-  const products = await client.fetch(
-    `*[_type=='product' && category=='male']`
-  );
+async function getAllProducts() {
+  const products = await client.fetch(`*[_type=='product']`);
   return products;
 }
 
@@ -23,17 +21,20 @@ function urlFor(source: any) {
   return builder.image(source);
 }
 
-const Male = async () => {
-  const products = await getMaleProducts();
+const AllProducts = async () => {
+  const products = await getAllProducts();
 
   return (
     <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto mb-24">
-      {products.map((data: any , i:any) => (
-        <div className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0" key={i}>
+      {products.map((data: any, i: any) => (
+        <div
+          className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-5"
+          key={i}
+        >
           <div className="h-full lg:border lg:border-gray-400">
             <Image
               src={urlFor(data.image).width(250).url()}
-              alt="Product Image"
+              alt="Product Image" 
               loading="lazy"
               width={250}
               height={250}
@@ -62,4 +63,4 @@ const Male = async () => {
   );
 };
 
-export default Male;
+export default AllProducts;
