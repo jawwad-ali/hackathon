@@ -4,7 +4,7 @@ import React from "react";
 import { Sora } from "next/font/google";
 
 interface ProductCardProps {
-  name: string;
+  name: string; 
   price: number;
   picture: StaticImageData;
 }
