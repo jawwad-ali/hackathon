@@ -3,7 +3,7 @@ import FlowbiteContext from "./context/FlowbiteContext";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;

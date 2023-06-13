@@ -15,7 +15,7 @@ async function getMaleProducts() {
   const products = await client.fetch(
     `*[_type=='product' && category=='male']`
   );
-  return products;
+  return products; 
 }
 
 // For reteriving image
