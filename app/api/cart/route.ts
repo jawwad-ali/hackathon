@@ -19,9 +19,9 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     const body = await request.json()
     const uid = v4();
-    
+
     const setCookies = cookies();
-    const user_id = cookies().get("user_id");
+    cookies().get("user_id");
 
     if (!cookies().get("user_id")) {
         setCookies.set("user_id", uid);
@@ -40,14 +40,14 @@ export async function POST(request: NextRequest) {
                 { quantity: body.quantity, user_id: cookies().get('user_id')?.value as string, prod_id: body.prod_id }).returning();
 
             console.log('ROUTE RES', res)
-            return NextResponse.json({ 'data added': res })
+            // return NextResponse.json({ 'data added': res })
         }
+        return NextResponse.json('data added')
     }
     catch (err) {
-        if (err instanceof Error) {
-            console.log(err.message);
-        } else {
-            console.log("Not an error");
+        if (body.prod_id) {
+            return NextResponse.json({ 'data added': err })
         }
+        return NextResponse.json({ 'data added': err })
     }
 } 
