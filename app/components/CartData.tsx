@@ -36,6 +36,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
 
   useEffect(() => {
     setProductId(data.map((prodId: any) => prodId?.prod_id));
+    console.log('productId' , productId)
   }, [data]);
 
   useEffect(() => {
@@ -47,6 +48,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
           });
 
           theId.then((d) => setCartProducts(d));
+          console.log('cartProduct' , cartProducts)
         } catch (err) {
           console.error("Error fetching value", err);
         }
