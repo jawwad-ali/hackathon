@@ -24,7 +24,7 @@ interface CartDataProps {
 }
 
 const CartData: React.FC<CartDataProps> = ({ data }) => {
-  const [productId, setProductId] = useState<any>();
+  const [productId, setProductId] = useState<any>("");
 
   const [cartProducts, setCartProducts] = useState<any>([]);
 
@@ -35,11 +35,11 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
   }
 
   useEffect(() => {
-    setProductId(data.map((prodId: any) => prodId?.prod_id));
-    console.log('productId' , productId)
-  }, [data]);
+    if (data.length > 0) {
+      setProductId(data.map((prodId: any) => prodId?.prod_id));
+      console.log("productId", productId);
+    }
 
-  useEffect(() => {
     (async () => {
       async function getCartProducts() {
         try {
@@ -48,14 +48,14 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
           });
 
           theId.then((d) => setCartProducts(d));
-          console.log('cartProduct' , cartProducts)
+          console.log("cartProduct", cartProducts);
         } catch (err) {
           console.error("Error fetching value", err);
         }
       }
       await getCartProducts();
     })();
-  }, [productId]);
+  }, [data, productId, cartProducts]);
 
   return (
     <div>
