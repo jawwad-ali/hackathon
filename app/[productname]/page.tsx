@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { client } from "../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
-
+ 
 import Image from "next/image";
 
 import { Sora } from "next/font/google";
@@ -31,7 +31,7 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
 
   useEffect(() => {
     getProductsById().then((data) => setData(data));
-  }, []);
+  }, [getProductsById]);
 
   // For fetching image
   const builder = imageUrlBuilder(client);

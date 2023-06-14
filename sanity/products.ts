@@ -1,10 +1,10 @@
 export default {
-    name: 'product', 
+    name: 'product',
     type: 'document',
-    title: 'Products', 
-    fields: [ 
+    title: 'Products',
+    fields: [
         {
-            name: 'name',  
+            name: 'name',
             type: 'string',
             title: 'Name',
         },

@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 
-import { v4 } from "uuid"; 
+import { v4 } from "uuid";
 
 import { db, cartTable } from './../../../lib/drizzle';
 
@@ -18,10 +18,10 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
     const body = await request.json()
-
-    const setCookies = cookies();
-
     const uid = v4();
+    
+    const setCookies = cookies();
+    const user_id = cookies().get("user_id");
 
     if (!cookies().get("user_id")) {
         setCookies.set("user_id", uid);
