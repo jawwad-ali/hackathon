@@ -1,8 +1,11 @@
+import { Suspense } from "react";
+
 import { cookies } from "next/headers";
 
 import { sql } from "@vercel/postgres";
 
 import CartData from "../components/CartData";
+import Loading from "./loading";
 
 const fetchItems = async () => {
   const { rows } = await sql`SELECT * FROM cartable WHERE user_id=${
@@ -15,7 +18,9 @@ const Cart = async () => {
   const data = await fetchItems();
   return (
     <div>
-      <CartData data={data} />
+      <Suspense fallback={<Loading />}>
+        <CartData data={data} />
+      </Suspense>
     </div>
   );
 };
