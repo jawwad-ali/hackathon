@@ -1,8 +1,14 @@
+import Loading from "../cart/loading";
+
+import { Suspense, lazy } from "react";
+
 import { cookies } from "next/headers";
 
 import { sql } from "@vercel/postgres";
+// import CartData from "../components/CartData";
 
-import CartData from "../components/CartData";
+// const ChildrenComponent = () => import("../components/CartData");
+const CartData = lazy(() => import('../components/CartData'));
 
 const fetchItems = async () => {
   const { rows } = await sql`SELECT * FROM cartable WHERE user_id=${
@@ -13,11 +19,14 @@ const fetchItems = async () => {
 
 const Cart = async () => {
   const data = await fetchItems();
-  return (
-    <div> 
-      {/* <Suspense key={key} fallback={<Loading />}> */}
+  const key = Math.random();
+
+  return ( 
+    <div>
+      <Suspense key={key} fallback={<Loading />}> 
         <CartData data={data} />
-      {/* </Suspense> */}
+        {/* <CartData data={data} /> */}
+      </Suspense>
     </div>
   );
 };

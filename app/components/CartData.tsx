@@ -76,7 +76,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
           ) : (
             <div className="flex flex-col lg:flex-row">
               <div className="lg:m-8 lg:w-8/12 w-full">
-                <Suspense key={data.length} fallback={<Loading />}>
+                {/* <Suspense key={data.length} fallback={<Loading />}> */}
                   {cartProducts.map((product: any, i: number) => (
                     <div
                       className="flex flex-col lg:flex-row my-5"
@@ -124,7 +124,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
                       </div>
                     </div>
                   ))}
-                </Suspense>
+                {/* </Suspense> */}
               </div>
 
               {/* Order Summary */}
