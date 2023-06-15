@@ -15,7 +15,7 @@ import Image from "next/image";
 
 import OrderSummary from "./OrderSummary";
 
-import Loading from "../cart/loading";
+// import Loading from "../cart/loading";
 
 const sora = Sora({
   subsets: ["latin"],
