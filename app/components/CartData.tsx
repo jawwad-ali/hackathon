@@ -150,7 +150,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
   useEffect(() => {
     const fetchCartProducts = async () => {
       try {
-        const builder = imageUrlBuilder(client);
+        // const builder = imageUrlBuilder(client);
         const productIds = data.map((prodId: any) => prodId?.prod_id) || [];
         const fetchedProducts = await client.fetch(`*[_id in $ids]`, {
           ids: productIds,
