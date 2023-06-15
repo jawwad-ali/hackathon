@@ -149,6 +149,8 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
   }
   const [cartProducts, setCartProducts] = useState<any[]>([]);
 
+  console.log("Random key", Math.random());
+
   useEffect(() => {
     const fetchCartProducts = async () => {
       try {
@@ -187,50 +189,50 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
           ) : (
             <div className="flex">
               <div className="m-8 w-8/12">
-                <Suspense fallback={<Loading />}> 
-                  {cartProducts.map((product: any, i: number) => (
-                    <div className="flex my-5" key={i}>
-                      {/* Product Image */}
-                      {product.image && (
-                        <Image
-                          priority 
-                          src={urlFor(product.image)
-                            .width(170)
-                            .height(225)
-                            ?.url()}
-                          alt="Product Image"
-                          width={170}
-                          height={225}
-                        />
-                      )}
-                      {/* Product details */}
-                      <div className="flex justify-between w-full">
-                        <div className="flex flex-col justify-around py-4 items-start text-left pl-6">
-                          <h3 className="font-light text-xl text-[#212121] pb-2">
-                            {product.name}
-                          </h3>
-                          <p className="pb-2">{product.product_type}</p>
-                          <p className="font-semibold text-base text-[#212121] pb-2">
-                            Delivery Estimation
-                          </p>
-                          <p className="pb-2 text-[#ffc700] text-base font-bold">
-                            5 Working Days
-                          </p>
-                          <p className="text-[17.6px] text-[#212121]">
-                            ${product.price}.00
-                          </p>
-                        </div>
+                {/* <Suspense key={Math.random()} fallback={<Loading />}>  */}
+                {cartProducts.map((product: any, i: number) => (
+                  <div className="flex my-5" key={i}> 
+                    {/* Product Image */}
+                    {product.image && (
+                      <Image
+                        priority
+                        src={urlFor(product.image)
+                          .width(170)
+                          .height(225)
+                          ?.url()}
+                        alt="Product Image"
+                        width={170}
+                        height={225}
+                      />
+                    )}
+                    {/* Product details */}
+                    <div className="flex justify-between w-full">
+                      <div className="flex flex-col justify-around py-4 items-start text-left pl-6">
+                        <h3 className="font-light text-xl text-[#212121] pb-2">
+                          {product.name}
+                        </h3>
+                        <p className="pb-2">{product.product_type}</p>
+                        <p className="font-semibold text-base text-[#212121] pb-2">
+                          Delivery Estimation
+                        </p>
+                        <p className="pb-2 text-[#ffc700] text-base font-bold">
+                          5 Working Days
+                        </p>
+                        <p className="text-[17.6px] text-[#212121]">
+                          ${product.price}.00
+                        </p>
+                      </div>
 
-                        {/* Delete Button and Quantity increase and decrease button */}
-                        <div className="py-4 flex flex-col justify-between">
-                          <div>
-                            <FaTrashAlt className="text-2xl mx-auto" />
-                          </div>
+                      {/* Delete Button and Quantity increase and decrease button */}
+                      <div className="py-4 flex flex-col justify-between">
+                        <div>
+                          <FaTrashAlt className="text-2xl mx-auto" />
                         </div>
                       </div>
                     </div>
-                  ))}
-                </Suspense>
+                  </div>
+                ))}
+                {/* </Suspense> */}
               </div>
 
               {/* Order Summary */}

@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { sql } from "@vercel/postgres";
 
 import CartData from "../components/CartData";
+
 import Loading from "./loading";
 
 const fetchItems = async () => {
@@ -15,11 +16,13 @@ const fetchItems = async () => {
 };
 
 const Cart = async () => {
-  const data = await fetchItems(); 
-  return ( 
-    <div>
-      <Suspense fallback={<Loading />}>
-        <CartData data={data} /> 
+  const data = await fetchItems();
+  const key = Math.random();
+  console.log('key==>',data.length)
+  return (
+    <div> 
+      <Suspense key={key} fallback={<Loading />}>
+        <CartData data={data} />
       </Suspense>
     </div>
   );
