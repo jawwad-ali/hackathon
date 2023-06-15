@@ -1,7 +1,7 @@
 "use client";
 import Loading from "../cart/loading";
 
-import React, { useEffect, useState,Suspense } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 
 import { client } from "../../sanity/lib/client";
 
@@ -59,7 +59,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
 
   return (
     <div>
-      <div className={`${sora.className} block max-w-6xl mx-auto`}>
+      <div className={`${sora.className} block lg:max-w-6xl mx-2 lg:mx-auto`}>
         <div className="flex flex-col">
           <h2 className={`${sora.className} text-2xl font-bold pt-8`}>
             Shopping Cart
@@ -75,22 +75,27 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
             </div>
           ) : (
             <div className="flex flex-col lg:flex-row">
-              <div className="m-8 w-8/12">
+              <div className="lg:m-8 lg:w-8/12 w-full">
                 <Suspense key={data.length} fallback={<Loading />}>
                   {cartProducts.map((product: any, i: number) => (
-                    <div className="flex my-5" key={i}>
+                    <div
+                      className="flex flex-col lg:flex-row my-5"
+                      key={i}
+                    >
                       {/* Product Image */}
                       {product.image && (
-                        <Image
-                          priority
-                          src={urlFor(product.image)
-                            .width(170)
-                            .height(225)
-                            ?.url()}
-                          alt="Product Image"
-                          width={170}
-                          height={225}
-                        />
+                        <div className="flex items-center justify-center">
+                          <Image
+                            priority
+                            src={urlFor(product.image)
+                              .width(170)
+                              .height(225)
+                              ?.url()}
+                            alt="Product Image"
+                            width={170}
+                            height={225}
+                          />
+                        </div>
                       )}
                       {/* Product details */}
                       <div className="flex justify-between w-full">
@@ -123,7 +128,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
               </div>
 
               {/* Order Summary */}
-              <div className="lg:w-1/3 w-[90%] mx-auto my-8 lg:mx-4">
+              <div className="lg:w-1/3 mx-2 my-8 lg:mx-4">
                 <OrderSummary cartProducts={cartProducts} data={data} />
               </div>
             </div>
