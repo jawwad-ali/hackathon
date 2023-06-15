@@ -15,11 +15,11 @@ const fetchItems = async () => {
 };
 
 const Cart = async () => {
-  const data = await fetchItems();
-  return (
+  const data = await fetchItems(); 
+  return ( 
     <div>
       <Suspense fallback={<Loading />}>
-        <CartData data={data} />
+        <CartData data={data} /> 
       </Suspense>
     </div>
   );
