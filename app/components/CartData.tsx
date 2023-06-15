@@ -1,7 +1,7 @@
 "use client";
-import Loading from "../cart/loading";
+// import Loading from "../cart/loading";
 
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState, /*Suspense*/ } from "react";
 
 import { client } from "../../sanity/lib/client";
 
