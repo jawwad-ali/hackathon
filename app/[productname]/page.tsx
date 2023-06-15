@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { client } from "../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
- 
+
 import Image from "next/image";
 
 import { Sora } from "next/font/google";
@@ -40,6 +40,8 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
   }
 
   const [count, setCount] = useState(1);
+
+  // const { addToCart } = useCart();
 
   // Add To Cart
   const handleCart = async () => {
@@ -177,5 +179,5 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
     </div>
   );
 };
- 
+
 export default DynamicProduct;

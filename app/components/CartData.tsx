@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 
 import { client } from "../../sanity/lib/client";
@@ -24,19 +25,23 @@ interface CartDataProps {
 }
 
 const CartData: React.FC<CartDataProps> = ({ data }) => {
-  const [productId, setProductId] = useState<any>("");
-
-  const [cartProducts, setCartProducts] = useState<any>([]);
-
   // For fetching image
   const builder = imageUrlBuilder(client);
   function urlFor(source: any) {
     return builder.image(source);
   }
+  console.log("data", data);
+
+  const [productId, setProductId] = useState<any>(
+    data?.map((prodId: any) => prodId?.prod_id) || ""
+  );
+  console.log("imediateproductId", productId);
+
+  const [cartProducts, setCartProducts] = useState<any>([]);
 
   useEffect(() => {
     if (data.length > 0) {
-      setProductId(data.map((prodId: any) => prodId?.prod_id));
+      setProductId(data?.map((prodId: any) => prodId?.prod_id) || "");
       console.log("productId", productId);
     }
 
@@ -46,7 +51,6 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
           const theId = client.fetch("*[_id in $ids]", {
             ids: productId || "",
           });
-
           theId.then((d) => setCartProducts(d));
           console.log("cartProduct", cartProducts);
         } catch (err) {
@@ -55,7 +59,9 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
       }
       await getCartProducts();
     })();
-  }, [data, productId, cartProducts]);
+  }, [data]);
+
+  const product_image = data.map((image) => image);
 
   return (
     <div>
@@ -76,49 +82,51 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
           ) : (
             <div className="flex">
               <div className="m-8 w-8/12">
-                {cartProducts?.map((product: any, i: number) => (
-                  <>
-                    <div className="flex my-5" key={i}>
-                      {/* Product Image */}
-                      <Image
-                        style={{ borderRadius: "9px" }}
-                        src={urlFor(product?.image)
-                          .width(170)
-                          .height(225)
-                          ?.url()}
-                        alt="Product Image"
-                        width={170}
-                        height={225}
-                        priority
-                      />
-                      {/* Product details */}
-                      <div className="flex justify-between w-full">
-                        <div className="flex flex-col justify-around py-4 items-start text-left pl-6">
-                          <h3 className="font-light text-xl text-[#212121] pb-2">
-                            {product.name}
-                          </h3>
-                          <p className="pb-2">{product.product_type}</p>
-                          <p className="font-semibold text-base text-[#212121] pb-2">
-                            Delivery Estimation
-                          </p>
-                          <p className="pb-2 text-[#ffc700] text-base font-bold">
-                            5 Working Days
-                          </p>
-                          <p className="text-[17.6px] text-[#212121]">
-                            ${product.price}.00
-                          </p>
-                        </div>
+                {cartProducts &&
+                  cartProducts?.map((product: any, i: number) => (
+                    <>
+                      <div className="flex my-5" key={i}>
+                        {/* Product Image */}
+                        {product && product_image && (
+                          <Image
+                            priority
+                            src={urlFor(product.image)
+                              .width(170)
+                              .height(225)
+                              ?.url()}
+                            alt="Product Image"
+                            width={170}
+                            height={225}
+                          />
+                        )}
+                        {/* Product details */}
+                        <div className="flex justify-between w-full">
+                          <div className="flex flex-col justify-around py-4 items-start text-left pl-6">
+                            <h3 className="font-light text-xl text-[#212121] pb-2">
+                              {product.name}
+                            </h3>
+                            <p className="pb-2">{product.product_type}</p>
+                            <p className="font-semibold text-base text-[#212121] pb-2">
+                              Delivery Estimation
+                            </p>
+                            <p className="pb-2 text-[#ffc700] text-base font-bold">
+                              5 Working Days
+                            </p>
+                            <p className="text-[17.6px] text-[#212121]">
+                              ${product.price}.00
+                            </p>
+                          </div>
 
-                        {/* Delete Button and Quantity increase and decrease button */}
-                        <div className="py-4 flex flex-col justify-between">
-                          <div>
-                            <FaTrashAlt className="text-2xl mx-auto" />
+                          {/* Delete Button and Quantity increase and decrease button */}
+                          <div className="py-4 flex flex-col justify-between">
+                            <div>
+                              <FaTrashAlt className="text-2xl mx-auto" />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </>
-                ))}
+                    </>
+                  ))}
               </div>
 
               {/* Order Summary */}
