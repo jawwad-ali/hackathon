@@ -180,7 +180,7 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
             </Button>
             <Toaster />
             <p className="ml-10 font-bold text-xl leading-30 letter-spacing-0.1 text-gray-900">
-              ${data[0]?.price}.00
+              ${data[0]?.price}.00 
             </p>
           </div>
         </div>

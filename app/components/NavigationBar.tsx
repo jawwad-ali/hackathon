@@ -1,10 +1,12 @@
 "use client";
 
 import { Navbar, TextInput } from "flowbite-react";
+
 import Image from "next/image";
 
 import { FaCartPlus, FaSearch } from "react-icons/fa";
-import Logo from "../images/logo.webp";
+
+import Logo from "../images/logo.webp"; 
 
 import { Sora } from "next/font/google";
 
@@ -35,7 +37,7 @@ const NavigationBar = () => {
         >
           <Link href="/cart">
             <FaCartPlus className="text-gray-500 text-2xl" />
-            <span className="absolute top-0 right-5 text-xs text-white bg-red-500 w-18 h-18 rounded-full flex items-center justify-center font-semibold">
+            <span className="absolute -top-1 right-2 text-xs text-white bg-red-500 p-0.5 px-1 rounded-full flex items-center justify-center font-semibold">
               0
             </span>
           </Link>
