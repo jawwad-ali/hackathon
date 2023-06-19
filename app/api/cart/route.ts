@@ -5,7 +5,6 @@ import { v4 } from "uuid";
 import { db, cartTable } from './../../../lib/drizzle';
 
 import { NextRequest, NextResponse } from "next/server";
-import { sql } from '@vercel/postgres';
 
 export async function GET() {
     try {
