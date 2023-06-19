@@ -6,7 +6,6 @@ import { InferModel } from 'drizzle-orm';
 
 import { sql } from '@vercel/postgres'
 
-
 export const cartTable = pgTable("cartable", {
     id: serial("id").primaryKey(),
     prod_id: varchar("prod_id").notNull(),

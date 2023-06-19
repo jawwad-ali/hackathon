@@ -5,6 +5,7 @@ import { v4 } from "uuid";
 import { db, cartTable } from './../../../lib/drizzle';
 
 import { NextRequest, NextResponse } from "next/server";
+import { sql } from '@vercel/postgres';
 
 export async function GET() {
     try {
@@ -27,20 +28,12 @@ export async function POST(request: NextRequest) {
         setCookies.set("user_id", uid);
     }
 
-    // const setCookies = cookies()
-
-    // const uid = v4();
-    // if ('user_id' in cookies() === null) {
-    //     setCookies.set('user_id', uid);
-    // }
-
     try {
         if (body.prod_id) {
             const res = await db.insert(cartTable).values(
                 { quantity: body.quantity, user_id: cookies().get('user_id')?.value as string, prod_id: body.prod_id }).returning();
 
             console.log('ROUTE RES', res)
-            // return NextResponse.json({ 'data added': res })
         }
         return NextResponse.json('data added')
     }
@@ -50,4 +43,29 @@ export async function POST(request: NextRequest) {
         }
         return NextResponse.json({ 'data added': err })
     }
-} 
+}
+
+export async function DELETE(req:NextRequest){
+    // const prod_id = req.body
+
+    // const delQuery = await sql`DELETE FROM cartable WHERE prod_id = ${prod_id}`    
+    console.log("req <=>",req)
+}
+
+// DELETE
+// export async function DELETE(req: NextRequest) {
+//     console.log('APIreq',req)
+//     try {
+//         const { prod_id } = await req.json();
+//         console.log('id on api', prod_id);
+    
+//         const deletedProduct = await db 
+//           .delete(cartTable)
+//           .where(eq(cartTable.prod_id, prod_id))
+//           .returning(); 
+    
+//         return NextResponse.json({ 'data delete': deletedProduct });
+//       } catch (err) {
+//         return NextResponse.json({ 'Error': err });
+//       }
+// }

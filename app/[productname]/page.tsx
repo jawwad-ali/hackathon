@@ -49,7 +49,7 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
       method: "POST",
       body: JSON.stringify({
         prod_id: data[0]?._id,
-        quantity: count,
+        quantity: count, 
       }),
     });
     toast.success(`${data[0]?.name} added to cart`);
@@ -168,7 +168,7 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
               className={`${sora.className} text-md h-[48px] w-[120px] bg-[#e1edff] text-blue-600 font-bold`}
             >
               Add To Cart
-            </Button>{" "}
+            </Button>
             <Toaster />
             <p className="ml-10 font-bold text-xl leading-30 letter-spacing-0.1 text-gray-900">
               ${data[0]?.price}.00
