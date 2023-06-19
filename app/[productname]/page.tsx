@@ -13,6 +13,8 @@ import { Sora } from "next/font/google";
 import { Button } from "../../components/ui/button";
 import "react-toastify/dist/ReactToastify.css";
 
+import { ShoppingCart } from "lucide-react";
+
 const sora = Sora({
   subsets: ["latin"],
   display: "swap",
@@ -49,10 +51,10 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
       method: "POST",
       body: JSON.stringify({
         prod_id: data[0]?._id,
-        quantity: count, 
+        quantity: count,
       }),
     });
-    toast.success(`${data[0]?.name} added to cart`);
+    toast.success(`${[count, data[0]?.name]} added to cart`);
   };
 
   return (
@@ -126,7 +128,10 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
           >
             <h4>Quantity:</h4>
             <div className="flex justify-around w-full">
-              <span className="minus" onClick={() => setCount(count - 1)}>
+              <span
+                className="cursor-pointer"
+                onClick={() => setCount(count - 1)}
+              >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -140,7 +145,10 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
                 </svg>
               </span>
               <span className="num">{count}</span>
-              <span className="plus" onClick={() => setCount(count + 1)}>
+              <span
+                className="cursor-pointer"
+                onClick={() => setCount(count + 1)}
+              >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -165,8 +173,9 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
           <div className="mt-10 flex justify-center items-center">
             <Button
               onClick={() => handleCart()}
-              className={`${sora.className} text-md h-[48px] w-[120px] bg-[#e1edff] text-blue-600 font-bold`}
+              className={`${sora.className} bg-[#212121] text-md py-4 text-white font-bold`}
             >
+              <ShoppingCart className="mr-2" />
               Add To Cart
             </Button>
             <Toaster />

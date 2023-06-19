@@ -11,7 +11,7 @@ import { Sora } from "next/font/google";
 import { FaCartPlus, FaTrashAlt } from "react-icons/fa";
 
 import imageUrlBuilder from "@sanity/image-url";
-
+ 
 import Image from "next/image";
 
 import OrderSummary from "./OrderSummary";
@@ -30,7 +30,7 @@ interface CartDataProps {
 }
 
 const CartData: React.FC<CartDataProps> = ({ data }) => {
-  const [, setLoading] = useState(false); 
+  const [, setLoading] = useState(false);
 
   // // For fetching image
   const builder = imageUrlBuilder(client);
@@ -77,12 +77,6 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
   //     }),
   //   });
 
-  //   if (response.status === 200) {
-  //     const data = await response.json();
-  //     console.log("Response Data <=>", data);
-  //     console.log("item_id", item_id);
-  //     console.log("Del response", response);
-  //     toast.error("Product Removed");
   //   } else {
   //     console.log("Error deleting product:", response.status);
   //   }
@@ -157,7 +151,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
                                   `${product.name} removed from the cart`
                                 );
                                 await handleDelete(product._id);
-                                setLoading(false); 
+                                setLoading(false);
                                 window.location.reload();
                               } catch (error) {
                                 // Handle error
