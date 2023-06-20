@@ -30,7 +30,7 @@ const Cart = async () => {
   const key = Math.random();
 
   return (
-    <div>
+    <div> 
       <Suspense key={key} fallback={<Loading />}>
         <CartData data={data} />
       </Suspense>

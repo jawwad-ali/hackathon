@@ -36,14 +36,16 @@ const footer: FooterProps[] = [
   },
 ];
 
+// mt-[32rem] md:mt-[36rem] lg:mt-32
+
 const Footer = () => {
   return (
-    <div className="w-full border-t border-gray-300 relative mt-[32rem] md:mt-[36rem] lg:mt-32">
+    <div className="w-full border-t border-gray-300 relative ">
       <div
         className={`${sora.className} mt-16 max-w-6xl mx-auto grid lg:grid-cols-4 grid-cols-1 gap-2 justify-between `}
       >
         <div className="m-11">
-          <div className="mb-6">
+          <div className="mb-6"> 
             <Image
               width={180}
               height={30}

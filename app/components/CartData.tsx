@@ -11,7 +11,7 @@ import { Sora } from "next/font/google";
 import { FaCartPlus, FaTrashAlt } from "react-icons/fa";
 
 import imageUrlBuilder from "@sanity/image-url";
- 
+
 import Image from "next/image";
 
 import OrderSummary from "./OrderSummary";

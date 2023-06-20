@@ -1,10 +1,31 @@
-const OrderSummary = ({ cartProducts}: any) => {
+"use client";
+
+import getStipePromise from "../../lib/stripe";
+
+const OrderSummary = ({ cartProducts }: any) => {
+  // Total Amount that customer has to pay
   let price = cartProducts.map((price: any) => parseInt(price.price));
 
   let sum = 0;
   for (let i = 0; i < price.length; i++) {
-    sum += price[i]; 
+    sum += price[i];
   }
+
+  // Stripe Checkout
+  const handleCheckout = async () => {
+    const stripe = await getStipePromise();
+    const response = await fetch("/api/create-payment-intent/", {
+      method: "POST", 
+      headers: { "Content-Type": "application/json" },
+      cache: "no-cache",
+      body: JSON.stringify(cartProducts),
+    });
+
+    const data = await response.json();
+    if (data.session) {
+      stripe?.redirectToCheckout({ sessionId: data.session.id });
+    }
+  };
 
   return (
     <div className="flex flex-col">
@@ -20,7 +41,7 @@ const OrderSummary = ({ cartProducts}: any) => {
         <p className="text-base font-bold">${sum}.00</p>
       </div>
 
-      <button className="mt-5 bg-black text-white text-sm font-semibold py-3">
+      <button onClick={handleCheckout} className="mt-5 bg-black text-white text-sm font-semibold py-3">
         Process to checkout
       </button>
     </div>
