@@ -5,7 +5,7 @@ import { v4 } from "uuid";
 import { db, cartTable } from './../../../lib/drizzle';
 
 import { NextRequest, NextResponse } from "next/server";
-
+ 
 export async function GET() {
     try {
         const CartProducts = await db.select().from(cartTable);

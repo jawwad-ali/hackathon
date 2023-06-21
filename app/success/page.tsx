@@ -8,7 +8,7 @@ import Link from "next/link";
 const sora = Sora({
   display: "swap",
   subsets: ["latin"],
-});
+}); 
 
 const Page = () => {
   return (

@@ -59,7 +59,7 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
 
   return ( 
     <div className="min-h-screen mt-24 max-w-6xl mx-auto relative mb-6">
-      <div className="flex lg:flex-row flex-col">
+      <div className="flex lg:flex-row flex-col"> 
         <div className="hidden lg:block">
           {/* Small Size Image */}
           {data[0]?.image && (

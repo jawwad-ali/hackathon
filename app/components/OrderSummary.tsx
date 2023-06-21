@@ -25,7 +25,6 @@ const OrderSummary = ({ cartProducts }: any) => {
     const data = await response.json();
     if (data.session) {
       stripe?.redirectToCheckout({ sessionId: data.session.id });
-      //
       toast("Redirecting", {
         duration: 6000,
       });
