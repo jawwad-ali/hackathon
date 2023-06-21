@@ -28,7 +28,7 @@ const Male = async () => {
   const products = await getMaleProducts();
   return (
     <>
-      <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto mb-24">
+      <div className=" min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto">
         {products.map((data: any, i: any) => (
           <div
             className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0"

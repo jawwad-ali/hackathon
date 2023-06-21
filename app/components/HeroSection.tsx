@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Button } from "../../components/ui/button";
+
 import { ShoppingCart } from "lucide-react";
  
 import { Sora } from "next/font/google";   

@@ -16,7 +16,7 @@ export default async function RootLayout({
         <meta name="description" content="Hackathon Project" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="h-full flex-1">
+      <body> 
         <FlowbiteContext>
           <NavigationBar />
           {children}

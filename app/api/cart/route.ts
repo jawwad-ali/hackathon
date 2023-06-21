@@ -44,13 +44,6 @@ export async function POST(request: NextRequest) {
     }
 }
 
-export async function DELETE(req:NextRequest){
-    // const prod_id = req.body
-
-    // const delQuery = await sql`DELETE FROM cartable WHERE prod_id = ${prod_id}`    
-    console.log("req <=>",req)
-}
-
 // DELETE
 // export async function DELETE(req: NextRequest) {
 //     console.log('APIreq',req)

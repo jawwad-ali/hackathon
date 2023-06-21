@@ -9,7 +9,8 @@ const stripe = new Stripe(key, {
 
 export async function POST(request: NextRequest) {
     const body = await request.json();
-    console.log("Payment Stripe <==>",body);
+    // console.log('Body' , body)
+    console.log("Payment Stripe <==>", body);
 
     try {
         if (body.length > 0) {
@@ -23,7 +24,7 @@ export async function POST(request: NextRequest) {
                 //   { shipping_rate: "shr_1NJgFzFFOcRRviB5RNlrrnhM" },
                 // ],
                 invoice_creation: {
-                  enabled: true,
+                    enabled: true,
                 },
                 line_items: body.map((item: any) => {
                     return {
@@ -36,18 +37,20 @@ export async function POST(request: NextRequest) {
                         },
                         quantity: 1,
                         adjustable_quantity: {
-                          enabled: true,
-                          minimum: 1,
-                          maximum: 10,
+                            enabled: true,
+                            minimum: 1,
+                            maximum: 10,
                         },
                     };
                 }),
                 phone_number_collection: {
-                  enabled: true,
+                    enabled: true,
                 },
                 success_url: `${request.headers.get("origin")}/success`,
                 cancel_url: `${request.headers.get("origin")}/?canceled=true`,
             });
+            // Remove items from the body array
+            // body.length = 0;
             return NextResponse.json({ session });
         } else {
             return NextResponse.json({ message: "No Data Found" });

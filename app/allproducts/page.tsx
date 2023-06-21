@@ -26,7 +26,7 @@ const AllProducts = async () => {
   const products = await getAllProducts();
 
   return (
-    <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto mb-24">
+    <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto min-h-screen">
       {products.map((data: any, i: any) => (
         <div
           className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-5"
@@ -39,7 +39,7 @@ const AllProducts = async () => {
                 alt="Product Image"
                 loading="lazy"
                 width={250}
-                height={250} 
+                height={250}
               />
             </div>
             <div>

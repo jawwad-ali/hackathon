@@ -28,7 +28,7 @@ const Female = async () => {
   const prod = await getFeMaleProducts();
 
   return (
-    <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto mb-24">
+    <div className="min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto">
       {prod.map((data: any, i: any) => (
         <div
           key={i}

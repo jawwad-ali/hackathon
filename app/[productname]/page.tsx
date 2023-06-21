@@ -57,8 +57,8 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
     toast.success(`${[count, data[0]?.name]} added to cart`);
   };
 
-  return (
-    <div className="h-[100vh] mt-24 max-w-6xl mx-auto relative">
+  return ( 
+    <div className="min-h-screen mt-24 max-w-6xl mx-auto relative mb-6">
       <div className="flex lg:flex-row flex-col">
         <div className="hidden lg:block">
           {/* Small Size Image */}

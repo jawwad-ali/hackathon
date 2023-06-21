@@ -83,7 +83,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
   // };
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Toaster />
 
       <div className={`${sora.className} block lg:max-w-6xl mx-2 lg:mx-auto`}>
