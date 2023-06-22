@@ -33,11 +33,11 @@ const obj: MyObject[] = [
 
 const Features = () => {
   return (
-    <div className="mb-2">
-      <div className="flex justify-center lg:justify-end w-full pt-0 pl-20 lg:pl-32 lg:pb-8">
+    <div className="mb-2 bg-purple-600 mx-4 lg:px-0">
+      <div className="flex justify-center lg:justify-end w-full pt-0 text-left lg:pl-32 lg:pb-8">
         <h1
           className={`${sora.className} font-bold text-[2.75rem] leading-[70px] lg:leading-[55px] tracking-[.03em] text-[#212121] 
-          lg:w-[50%]`}
+          lg:w-[50%]`} 
         >
           Unique and Authentic Vintage Designer Jewellery
         </h1>
@@ -51,7 +51,7 @@ const Features = () => {
               className="font-extrabold text-6xl lg:text-8xl lg:leading-[110px] leading-[130px] text-[#212121] 
               xl:px-12 px-10 md:px-2"
               style={{ opacity: ".07", zIndex: 1 }}
-            >
+            > 
               Different from others
             </h3>
           </div>
@@ -60,7 +60,7 @@ const Features = () => {
           {obj.map((data: MyObject, i: any) => (
             <div
               key={i}
-              className="mt-8 w-[82%] lg:w-[75%] mx-auto lg:mx-4"
+              className="mt-8 lg:w-[75%] mx-auto lg:mx-4"
               style={{ zIndex: 2 }}
             >
               <h3
@@ -78,7 +78,7 @@ const Features = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex lg:flex-row flex-col justify-center items-center">
+        <div className="flex lg:flex-row flex-col justify-center items-center mt-12 lg:mt-0">
           <Image width="300" height="350" src={FeatureOne} alt="Feature One" loading="lazy" />
           <div className="flex flex-col gap-8 justify-center items-center p-6">
             <p

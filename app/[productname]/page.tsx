@@ -58,8 +58,8 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
   };
 
   return ( 
-    <div className="min-h-screen mt-24 max-w-6xl mx-auto relative mb-6">
-      <div className="flex lg:flex-row flex-col"> 
+    <div className="min-h-screen mt-12 lg:mt-24 max-w-6xl mx-auto relative mb-6">
+      <div className="flex lg:flex-row flex-col mx-4 lg:mx-0"> 
         <div className="hidden lg:block">
           {/* Small Size Image */}
           {data[0]?.image && (
@@ -88,7 +88,7 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
 
         {/* Name And Product Type */}
         <div
-          className={`${sora.className} lg:ml-10 mx-24 mt-10 lg:mt-0 flex justify-center items-start flex-col`}
+          className={`${sora.className} lg:ml-10 mt-10 lg:mt-0 flex justify-center items-start flex-col`}
         >
           <h3 className={`text-3xl leading-8 tracking-wider text-[#212121]`}>
             {data[0]?.name}
@@ -170,10 +170,10 @@ const DynamicProduct = ({ params }: { params: { productname: string } }) => {
           </div>
 
           {/* Add To Cart button and Price */}
-          <div className="mt-10 flex justify-center items-center">
+          <div className="mt-10 flex justify-between items-center">
             <Button
               onClick={() => handleCart()}
-              className={`${sora.className} bg-[#212121] text-md py-4 text-white font-bold`}
+              className={`${sora.className} h-14 w-32 bg-[#212121] text-md py-4 text-white font-bold`}
             >
               <ShoppingCart className="mr-2" />
               Add To Cart

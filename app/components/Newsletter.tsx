@@ -8,7 +8,7 @@ const sora = Sora({
 const Newsletter = () => {
   return (
     <div
-      className={`${sora.className} flex flex-col justify-center items-center my-12 mt-[150px]`}
+      className={`${sora.className} mx-4 lg:mx-0 flex flex-col justify-center items-center my-12 mt-[150px]`}
     >
       <h3 className="pb-4 font-bold lg:text-4xl text-3xl text-center -tracking-tight text-[#212121]">
         Subscribe Our Newsletter

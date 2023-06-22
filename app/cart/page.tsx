@@ -7,7 +7,7 @@ import { Suspense, lazy } from "react";
 import { cookies } from "next/headers";
 
 import { sql } from "@vercel/postgres";
- 
+
 // CartData component
 const CartData = lazy(() => import("../components/CartData"));
 
@@ -30,7 +30,7 @@ const Cart = async () => {
   const key = Math.random();
 
   return (
-    <div> 
+    <div>
       <Suspense key={key} fallback={<Loading />}>
         <CartData data={data} />
       </Suspense>

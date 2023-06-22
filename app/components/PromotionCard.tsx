@@ -4,7 +4,7 @@ import { Sora } from "next/font/google";
 import Image, { StaticImageData } from "next/image";
 
 interface PromotionCardProps {
-  productName: string;
+  productName: string; 
   prevPrice: number;
   currentPrice: number;
   picture: StaticImageData;
@@ -21,7 +21,7 @@ const PromotionCard: React.FC<PromotionCardProps> = ({
   picture,
 }) => {
   return (
-    <div className="lg:w-1/2 w-full mx-1 mt-4 lg:mt-0">
+    <div className="lg:w-1/2 w-full mt-4 lg:mt-0">
       <div
         className={`${bgColor} h-full w-full pt-6 flex flex-col lg:justify-between justify-center items-center lg:items-start`}
       >
