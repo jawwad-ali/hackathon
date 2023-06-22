@@ -5,14 +5,14 @@ import Image from "next/image";
 
 import { Sora } from "next/font/google";
 import Link from "next/link";
-
+ 
 const sora = Sora({
   subsets: ["latin"],
   display: "swap",
 });
 
 async function getFeMaleProducts() {
-  const products = await client.fetch(
+  const products = await client.fetch( 
     `*[_type=='product' && category=='female']`
   );
   return products;
@@ -21,7 +21,7 @@ async function getFeMaleProducts() {
 // Function for reteriving image
 const builder = imageUrlBuilder(client);
 function urlFor(source: any) {
-  return builder.image(source);
+  return builder.image(source); 
 }
 
 const Female = async () => {
@@ -32,7 +32,7 @@ const Female = async () => {
       {prod.map((data: any, i: any) => (
         <div
           key={i}
-          className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0"
+          className="flex flex-col h-full  mx-auto hover:cursor-pointer pb-4 lg:pb-0"
         >
           <Link href={`/${data._id}`}>
             <div className="lg:border lg:border-gray-400">

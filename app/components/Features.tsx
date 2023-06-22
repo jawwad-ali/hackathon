@@ -33,7 +33,7 @@ const obj: MyObject[] = [
 
 const Features = () => {
   return (
-    <div className="mb-2 bg-purple-600 mx-4 lg:px-0">
+    <div className="mb-2 mx-4 lg:px-0">
       <div className="flex justify-center lg:justify-end w-full pt-0 text-left lg:pl-32 lg:pb-8">
         <h1
           className={`${sora.className} font-bold text-[2.75rem] leading-[70px] lg:leading-[55px] tracking-[.03em] text-[#212121] 
