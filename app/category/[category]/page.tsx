@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const sora = Sora({
   subsets: ["latin"],
-  display: "swap",
+  display: "swap", 
 });
 
 const Page = async ({ params }: { params: { category: string } }) => {

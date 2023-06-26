@@ -42,10 +42,11 @@ const FetchCartProducts = async () => {
 
 const Cart = async () => {
   // const data = await fetchItems();
-  const key = Math.random();
+  // const key = Math.random();
 
   const CartItems = await FetchCartProducts();
-
+  const key = `CartItems-${new Date().getTime()}`;
+  console.log('UpdateTimeKey',key)
   return (
     <div>
       <Suspense key={key} fallback={<Loading />}>
