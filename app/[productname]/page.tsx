@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast"; 
 
 import { client } from "../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
@@ -13,9 +13,9 @@ import { Sora } from "next/font/google";
 import { Button } from "../../components/ui/button";
 import "react-toastify/dist/ReactToastify.css";
 
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react"; 
 
-const sora = Sora({
+const sora = Sora({ 
   subsets: ["latin"],
   display: "swap",
 });

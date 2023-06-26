@@ -26,10 +26,10 @@ const sora = Sora({
 });
 
 interface CartDataProps {
-  data: QueryResultRow[];
+  CartItems: QueryResultRow[];
 }
 
-const CartData: React.FC<CartDataProps> = ({ data }) => {
+const CartData: React.FC<CartDataProps> = ({ CartItems }) => {
   const [, setLoading] = useState(false);
 
   // // For fetching image
@@ -43,7 +43,8 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
   useEffect(() => {
     const fetchCartProducts = async () => {
       try {
-        const productIds = data.map((prodId: any) => prodId?.prod_id) || [];
+        const productIds =
+          CartItems.map((prodId: any) => prodId?.prod_id) || [];
         const fetchedProducts = await client.fetch(`*[_id in $ids]`, {
           ids: productIds,
         });
@@ -53,16 +54,16 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
       }
     };
 
-    if (data.length > 0) {
+    if (CartItems.length > 0) {
       fetchCartProducts();
     }
-  }, [data.length, cartProducts.length]);
+  }, [CartItems.length, cartProducts.length]);
   // }, [data]);
 
-  useEffect(() => {
-    console.log("data", data);
-    console.log("cartProdcuts", cartProducts);
-  }, [cartProducts]);
+  // useEffect(() => {
+  //   console.log("data", CartItems);
+  //   console.log("cartProdcuts", cartProducts);
+  // }, [cartProducts]);
 
   // Delete Product from Cart
   // const handleDelete = async (item_id: string) => {
@@ -169,7 +170,7 @@ const CartData: React.FC<CartDataProps> = ({ data }) => {
 
               {/* Order Summary */}
               <div className="lg:w-1/3 mx-2 my-8 lg:mx-4">
-                <OrderSummary cartProducts={cartProducts} data={data} />
+                <OrderSummary cartProducts={cartProducts} data={CartItems} />
               </div>
             </div>
           )}

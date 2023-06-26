@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { FaCartPlus, FaSearch } from "react-icons/fa";
 
-import Logo from "../images/logo.webp"; 
+import Logo from "../images/logo.webp";
 
 import { Sora } from "next/font/google";
 
@@ -17,7 +17,7 @@ const sora = Sora({ subsets: ["latin"] });
 const NavigationBar = () => {
   return (
     <Navbar fluid rounded className="border-none max-w-6xl mx-auto">
-      <Navbar.Brand href="/">
+      <Navbar.Brand href="/" as={Link}>
         <Image src={Logo} alt="Logo" height={25} width={140} />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
       </Navbar.Brand>
@@ -50,17 +50,17 @@ const NavigationBar = () => {
           Home
         </Navbar.Link>
 
-        <Navbar.Link as={Link} href="/female">
+        <Navbar.Link as={Link} href="/category/female">
           Female
         </Navbar.Link>
 
-        <Navbar.Link href="/male" as={Link}>
+        <Navbar.Link href="/category/male" as={Link}>
           Male
         </Navbar.Link>
-        <Navbar.Link href="/kids" as={Link}>
+        <Navbar.Link href="/category/kids" as={Link}>
           Kids
         </Navbar.Link>
-        <Navbar.Link href="/allproducts" as={Link}>
+        <Navbar.Link href="/category/allproducts" as={Link}>
           All Products
         </Navbar.Link>
 

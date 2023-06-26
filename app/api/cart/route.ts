@@ -1,3 +1,5 @@
+// import { RequestCookies } from '@edge-runtime/cookies'
+
 import { cookies } from 'next/headers'
 
 import { v4 } from "uuid"; 
@@ -5,16 +7,29 @@ import { v4 } from "uuid";
 import { db, cartTable } from './../../../lib/drizzle';
 
 import { NextRequest, NextResponse } from "next/server";
+import { eq } from 'drizzle-orm';
 
-export async function GET() {
-    
-    try {
+export async function GET() { 
+    try { 
+        // rq:NextRequest
+
+        // const cookies = new RequestCookies(rq.headers);
+        // const user_id = cookies.get('user_id')?.value || ''; // Set a default value if user_id is undefined
+        
+        // const setCookies = cookies();
+        // cookies().get("user_id");
+
+        // @ts-ignore
         const CartProducts = await db.select().from(cartTable)
-    
+        .where(eq(cartTable.user_id , cookies().get("user_id")?.value as string))
+        
+        // console.log('CartProducts' , CartProducts) 
+        // console.log('Way after user_id', user_id);
+
         return NextResponse.json(CartProducts); 
-    } catch (err) {
+    } catch (err) { 
         console.log(err)
-        return NextResponse.json({ message: "SomeThing went wrong" });
+        return NextResponse.json({ message: err });
     }
 }
  
