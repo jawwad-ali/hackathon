@@ -1,57 +1,26 @@
-"use server";
+"use client";
+import useSWR from "swr";
 
 import Loading from "../cart/loading";
 
-import { Suspense, lazy } from "react";
+import CartData from "../components/CartData";
 
-import { sql } from "@vercel/postgres";
-
-// CartData component
-const CartData = lazy(() => import("../components/CartData"));
-
-// Query to Del items from Database
-export const handleDelete = async (id: string) => {
-  const del = await sql`DELETE FROM cartable WHERE prod_id = ${id}`;
-  console.log("del", del);
-};
-
-// Query to Fetch Items from Database
-// const fetchItems = async () => {
-//   const { rows } = await sql`SELECT * FROM cartable WHERE user_id=${
-//     cookies().get("user_id")?.value as string
-//   }`;
-//   return rows;
-// };
-
-const FetchCartProducts = async () => {
-  try {
-    const response = await import("../api/cart/route");
-    const data = await (await response.GET()).json();
-
-    // Parse the response as JSON
-    // const data = await response.json();
-
-    // Return the parsed data
-    return data;
-  } catch (error) {
-    // Handle any errors that occur during the request
-    console.error("Error fetching cart products:", error);
-    throw error;
-  }
-};
+const url = "http://localhost:3000/api/cart";
+const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
 const Cart = async () => {
-  // const data = await fetchItems();
-  // const key = Math.random();
+  const { data, error, isLoading } = useSWR(url, fetcher);
+  if (error) return <div>failed to load</div>; 
+  if (isLoading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
 
-  const CartItems = await FetchCartProducts();
-  const key = `CartItems-${new Date().getTime()}`;
-  console.log('UpdateTimeKey',key)
   return (
     <div>
-      <Suspense key={key} fallback={<Loading />}>
-        <CartData CartItems={CartItems} />
-      </Suspense>
+      <CartData data={data} />
     </div>
   );
 };
