@@ -18,7 +18,7 @@ const sora = Sora({
 const Page = async ({ params }: { params: { category: string } }) => {
   async function getProductsByCategory() {
     if (params.category === "allproducts") {
-      const allProd = await client.fetch(`*[_type=='product']`);
+      const allProd = await client.fetch(`*[_type=='product']`); 
       return allProd;
     } else {
       const products = await client.fetch(

@@ -35,6 +35,7 @@ function urlFor(source: any) {
 }
 
 const CartData = ({ data }: CartDataProps) => {
+  const [, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState<any[]>([]);
 
   useEffect(() => {
@@ -121,12 +122,12 @@ const CartData = ({ data }: CartDataProps) => {
                               className="text-2xl mx-auto text-red-600 hover:cursor-pointer"
                               onClick={async () => {
                                 try {
-                                  // setLoading(true);
+                                  setLoading(true);
                                   toast.error(
                                     `${product.name} removed from the cart`
                                   );
                                   await handleDelete(product._id);
-                                  // setLoading(false);
+                                  setLoading(false);
                                   window.location.reload();
                                 } catch (error) {
                                   // Handle error

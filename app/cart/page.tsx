@@ -5,7 +5,8 @@ import Loading from "../cart/loading";
 
 import CartData from "../components/CartData";
 
-const url = "http://localhost:3000/api/cart";
+// const url = "http://localhost:3000/api/cart";
+const url = "/api/cart";
 const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
 const Cart = async () => {
