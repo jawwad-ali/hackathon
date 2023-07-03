@@ -19,7 +19,7 @@ const OrderSummary = ({ cartProducts }: any) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       cache: "no-cache",
-      body: JSON.stringify(cartProducts),
+      body: JSON.stringify(cartProducts), 
     });
 
     const data = await response.json();

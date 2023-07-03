@@ -25,7 +25,10 @@ const Newsletter = () => {
            outline-black block lg:inline-block"
         />
         <div className="text-center flex justify-center items-center">
-          <button className="block lg:inline-block mt-4 lg:mt-0 py-[15px] px-5 bg-black text-white font-semibold text-[0.9rem] ml-3 leading-4">
+          <button
+            className="block lg:inline-block mt-4 lg:mt-0 py-[15px] px-5 flex-shrink-0 bg-black text-white font-semibold 
+            text-[0.9rem] ml-3 leading-4"
+          >
             Get Started
           </button>
         </div>

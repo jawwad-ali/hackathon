@@ -50,15 +50,13 @@ const CartData = ({ data }: CartDataProps) => {
         console.error("Error fetching products", err);
       }
     };
-
+ 
     if (data.length > 0) {
       fetchCartProducts();
     }
   }, [data.length, cartProducts.length]);
 
   return (
-    <div className="min-h-screen">
-      {/* {JSON.stringify(cartProducts)} <br /> */}
       <div className="min-h-screen">
         <Toaster />
 
@@ -152,7 +150,6 @@ const CartData = ({ data }: CartDataProps) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 export default CartData;

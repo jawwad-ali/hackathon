@@ -87,14 +87,3 @@ const Page = async ({ params }: { params: { category: string } }) => {
 };
 
 export default Page;
-
-// image: { _type: 'image', asset: [Object] },
-// product_type: 'pants',
-// price: '175',
-// _rev: 'GpHB21TxMU72HgW5E0tMxq',
-// _type: 'product',
-// name: 'Flex Sweatpants',
-// _createdAt: '2023-06-07T14:23:20Z',
-// _id: 'e8d36d8e-b0b0-4d14-9181-3c4a818bd78c',
-// category: 'female',
-// _updatedAt: '2023-06-07T14:23:20Z'

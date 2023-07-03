@@ -15,6 +15,7 @@ import Link from "next/link";
 const sora = Sora({ subsets: ["latin"] });
 
 const NavigationBar = () => {
+
   return (
     <Navbar fluid rounded className="border-none max-w-6xl mx-auto">
       <Navbar.Brand href="/" as={Link}>

@@ -183,7 +183,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
             <div className="mt-10 flex justify-between items-center">
               <Button
                 onClick={() => handleCart()}
-                className={`${sora.className} h-12 w-40 bg-[#212121] text-md py-4 text-white font-bold`}
+                className={`${sora.className} h-12 w-40 flex-shrink-0 bg-[#212121] text-md py-4 text-white font-bold`}
               >
                 <ShoppingCart className="mr-2" />
                 Add To Cart
