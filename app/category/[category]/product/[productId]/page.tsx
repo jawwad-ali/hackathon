@@ -49,7 +49,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
   const builder = imageUrlBuilder(client);
   function urlFor(source: any) {
     return builder.image(source);
-  }
+  } 
 
   // Product Quantity
   const [count, setCount] = useState(1);

@@ -3,7 +3,8 @@ import { Sora } from "next/font/google";
 import { Button } from "../../components/ui/button";
 
 import FeatureOne from "../images/feature_one.webp";
-import Image from "next/image"; 
+import Image from "next/image";
+import Link from "next/link";
 
 const sora = Sora({ subsets: ["latin"], display: "swap" });
 
@@ -95,11 +96,13 @@ const Features = () => {
               color is the actual natural color of the fiber, undyed and 100%
               traceable.
             </p>
-            <Button
-              className={`${sora.className} text-md flex-shrink-0 bg-[#212121] text-white font-bold`}
-            >
-              See All Products
-            </Button>
+            <Link href='/category/allproducts'>
+              <Button
+                className={`${sora.className} text-md flex-shrink-0 bg-[#212121] text-white font-bold`}
+              >
+                See All Products
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
