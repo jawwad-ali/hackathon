@@ -15,7 +15,7 @@ import FeaturedFour from "../images/featured_four.webp";
 const sora = Sora({
   display: 'swap',
   subsets: ["latin"]
-})
+}) 
 
 const HeroSection = () => {
   return (

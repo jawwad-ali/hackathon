@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import { client } from "../../../../../sanity/lib/client";
+
 import imageUrlBuilder from "@sanity/image-url";
 
 import Image from "next/image";
@@ -20,8 +21,17 @@ const sora = Sora({
   display: "swap",
 });
 
+interface CategoryProps {
+  product_type: string;
+  price: string;
+  name: string;
+  _id: string;
+  category: string;
+  image: string;
+}
+
 const Page = ({ params }: { params: { productId: string } }) => {
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<CategoryProps[]>([]);
 
   // Getting the Product by ID
   async function getProductsById() {
@@ -58,7 +68,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
 
   return (
     <div>
-      <div className="min-h-screen mt-12 lg:mt-24 max-w-6xl mx-auto relative mb-6">
+      <div className="min-h-screen mt-12 lg:mt-24 relative mb-6">
         <div className="flex lg:flex-row flex-col mx-4 lg:mx-0">
           <div className="hidden lg:block">
             {/* Small Size Image */}
@@ -173,7 +183,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
             <div className="mt-10 flex justify-between items-center">
               <Button
                 onClick={() => handleCart()}
-                className={`${sora.className} h-14 w-32 bg-[#212121] text-md py-4 text-white font-bold`}
+                className={`${sora.className} h-12 w-40 bg-[#212121] text-md py-4 text-white font-bold`}
               >
                 <ShoppingCart className="mr-2" />
                 Add To Cart

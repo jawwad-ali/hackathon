@@ -4,7 +4,6 @@
 
 .sizeButtonHover:hover {
   box-shadow: 0 14px 58px 0 hsla(240, 5%, 41%, 0.5);
-  /* box-shadow: 0 14px 58px 0 red; */
 }
 
 @layer base {

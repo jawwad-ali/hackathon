@@ -1,5 +1,3 @@
-import React from "react";
-
 import { client } from "../../../sanity/lib/client";
 
 import imageUrlBuilder from "@sanity/image-url";
@@ -10,15 +8,24 @@ import { Sora } from "next/font/google";
 
 import Link from "next/link";
 
+interface CategoryProps {
+  product_type: string;
+  price: string;
+  name: string;
+  _id: string;
+  category: string;
+  image: string;
+}
+
 const sora = Sora({
   subsets: ["latin"],
-  display: "swap", 
+  display: "swap",
 });
 
 const Page = async ({ params }: { params: { category: string } }) => {
   async function getProductsByCategory() {
     if (params.category === "allproducts") {
-      const allProd = await client.fetch(`*[_type=='product']`); 
+      const allProd = await client.fetch(`*[_type=='product']`);
       return allProd;
     } else {
       const products = await client.fetch(
@@ -29,7 +36,6 @@ const Page = async ({ params }: { params: { category: string } }) => {
   }
 
   const prod = await getProductsByCategory();
-  console.log("Prod By Category", prod);
 
   // Function for reteriving image
   const builder = imageUrlBuilder(client);
@@ -39,8 +45,8 @@ const Page = async ({ params }: { params: { category: string } }) => {
 
   return (
     <div>
-      <div className="min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 max-w-6xl mx-auto">
-        {prod.map((data: any, i: any) => (
+      <div className="min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16">
+        {prod.map((data: CategoryProps, i: any) => (
           <div
             key={i}
             className="flex flex-col h-full  mx-auto hover:cursor-pointer pb-4 lg:pb-0"
@@ -81,3 +87,14 @@ const Page = async ({ params }: { params: { category: string } }) => {
 };
 
 export default Page;
+
+// image: { _type: 'image', asset: [Object] },
+// product_type: 'pants',
+// price: '175',
+// _rev: 'GpHB21TxMU72HgW5E0tMxq',
+// _type: 'product',
+// name: 'Flex Sweatpants',
+// _createdAt: '2023-06-07T14:23:20Z',
+// _id: 'e8d36d8e-b0b0-4d14-9181-3c4a818bd78c',
+// category: 'female',
+// _updatedAt: '2023-06-07T14:23:20Z'
