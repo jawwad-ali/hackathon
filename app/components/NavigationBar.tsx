@@ -8,9 +8,11 @@ import { FaCartPlus, FaSearch } from "react-icons/fa";
 
 import Logo from "../images/logo.webp";
 
-import { Sora } from "next/font/google";
+import { Sora } from "next/font/google"; 
 
 import Link from "next/link";
+
+import { UserButton } from "@clerk/nextjs";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -43,6 +45,10 @@ const NavigationBar = () => {
             </span>
           </Link>
         </div>
+
+        {/* Clerk User Management Button */}
+        <UserButton afterSignOutUrl="/" />
+
         <Navbar.Toggle />
       </div>
 
@@ -68,7 +74,7 @@ const NavigationBar = () => {
         <TextInput
           className="mt-4 flex lg:hidden"
           icon={FaSearch}
-          id="search"
+          id="search" 
           placeholder="Search"
           required
           type="text"

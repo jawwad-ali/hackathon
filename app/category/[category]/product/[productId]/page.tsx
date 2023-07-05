@@ -159,7 +159,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
                   className="cursor-pointer"
                   onClick={() => setCount(count + 1)}
                 >
-                  <svg
+                  <svg 
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"

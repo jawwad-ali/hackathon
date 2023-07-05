@@ -13,10 +13,10 @@ interface CategoryProps {
   price: string;
   name: string;
   _id: string;
-  category: string;
+  category: string; 
   image: string;
 }
-
+ 
 const sora = Sora({
   subsets: ["latin"],
   display: "swap",

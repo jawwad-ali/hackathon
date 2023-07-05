@@ -11,6 +11,7 @@ import FeaturedOne from "../images/featured_one.webp";
 import FeaturedTwo from "../images/featured_two.webp";
 import FeaturedThree from "../images/featured_three.webp";
 import FeaturedFour from "../images/featured_four.webp";
+
 import Link from "next/link";
 
 const sora = Sora({
@@ -35,7 +36,7 @@ const HeroSection = () => {
         <div className="mt-8 w-[85%] lg:w-[60%]">
           <p className={`${sora.className} text-[#666] text-base`}>
             Anyone can beat you but no one can beat your outfit as long as you
-            wear Dine outfits.
+            wear Dine outfits. 
           </p>
         </div>
 

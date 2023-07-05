@@ -15,3 +15,13 @@ export default async function Home() {
     </div>
   );
 }
+
+
+
+// Nextjs  - Framework
+// Tailwind CSS - styling
+
+// Vercel - For Database
+// Drizzle ORM - For Type definition
+
+// Stripe Payment

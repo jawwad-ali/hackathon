@@ -53,8 +53,8 @@ const CartData = ({ data }: CartDataProps) => {
 
     if (data.length > 0) {
       fetchCartProducts();
-    }
-  }, [data.length, cartProducts.length]);
+    } 
+  }, [data?.length, cartProducts?.length]);
 
   return (
     <div className="min-h-screen">
