@@ -49,7 +49,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
   const builder = imageUrlBuilder(client);
   function urlFor(source: any) {
     return builder.image(source);
-  } 
+  }
 
   // Product Quantity
   const [count, setCount] = useState(1);
@@ -159,7 +159,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
                   className="cursor-pointer"
                   onClick={() => setCount(count + 1)}
                 >
-                  <svg 
+                  <svg
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"
@@ -183,11 +183,12 @@ const Page = ({ params }: { params: { productId: string } }) => {
             <div className="mt-10 flex justify-between items-center">
               <Button
                 onClick={() => handleCart()}
-                className={`${sora.className} h-12 w-40 flex-shrink-0 bg-[#212121] text-md py-4 text-white font-bold`}
+                className={`text-white font-sans text-md font-semibold bg-gray-900 py-6 px-6 rounded-md flex 
+                items-center justify-center gap-x-0.5 ${sora.className}`}
               >
-                <ShoppingCart className="mr-2" />
-                Add To Cart
+                <ShoppingCart className="mr-2 h-5 w-5" /> Add To Cart
               </Button>
+
               <Toaster />
               <p className="ml-10 font-bold text-xl leading-30 letter-spacing-0.1 text-gray-900">
                 ${data[0]?.price}.00
