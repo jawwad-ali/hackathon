@@ -1,6 +1,7 @@
 import { buffer } from "micro"
 import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { headers } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
 
 const endpoint = process.env['STRIPE_SIGNING_SECRET']
 
@@ -10,15 +11,19 @@ async function fullfillOrder(session: any) {
     console.log("FullFilling the Order", session)
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request, res: NextApiResponse) {
 
-    const requestBuffer = await buffer(req)
-    const payload = requestBuffer.toString()
-    const sig = req.headers['stripe-signature']
+    const text = await req.text();
+    const headersList = headers();
+    const stripeSignature = headersList.get("stripe-Signature");
+
+    // const requestBuffer = await buffer(req)
+    // const payload = requestBuffer.toString()
+    // const sig = req.headers['stripe-signature']
 
     let event;
     try {
-        event = stripe?.Webhook.construct_event(payload, sig, endpoint)
+        event = stripe?.Webhook.construct_event(text, endpoint, stripeSignature)
         console.log('event', event)
     } catch (error) {
         console.log('ERROR', error)
