@@ -46,7 +46,7 @@ export async function POST(req: Request, res: NextApiResponse) {
     }
 }
 
-export const config = {
+export const routeConfig = {
     api: {
         bodyParser: false,
         externalResolver: true,
