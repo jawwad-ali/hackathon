@@ -16,6 +16,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { ShoppingCart } from "lucide-react";
 
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../../../../../slices/basketSlice";
+
 const sora = Sora({
   subsets: ["latin"],
   display: "swap",
@@ -28,10 +31,13 @@ interface CategoryProps {
   _id: string;
   category: string;
   image: string;
+  count:number
 }
 
 const Page = ({ params }: { params: { productId: string } }) => {
   const [data, setData] = useState<CategoryProps[]>([]);
+
+  const dispatch = useDispatch();
 
   // Getting the Product by ID
   async function getProductsById() {
@@ -63,6 +69,20 @@ const Page = ({ params }: { params: { productId: string } }) => {
         quantity: count,
       }),
     });
+
+    dispatch(
+      addToBasket(
+        data.map((d: CategoryProps) => ({
+          _id: d._id,
+          name: d.name,
+          category: d.category,
+          price: d.price,
+          product_type: d.product_type,
+          image: d.image,
+          quantity: count,
+        }))
+      )
+    );
     toast.success(`${[count, data[0]?.name]} added to cart`);
   };
 
@@ -82,7 +102,6 @@ const Page = ({ params }: { params: { productId: string } }) => {
               />
             )}
           </div>
-
           {/* BIg Size Image */}
           <div className="lg:ml-10 flex items-center justify-center">
             {data[0]?.image && (
@@ -95,7 +114,6 @@ const Page = ({ params }: { params: { productId: string } }) => {
               />
             )}
           </div>
-
           {/* Name And Product Type */}
           <div
             className={`${sora.className} lg:ml-10 mt-10 lg:mt-0 flex justify-center items-start flex-col`}

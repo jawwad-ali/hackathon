@@ -9,8 +9,6 @@ const stripe = new Stripe(key, {
 
 export async function POST(request: NextRequest) {
     const body = await request.json();
-    // console.log('Body' , body)
-    console.log("Payment Stripe <==>", body);
 
     try {
         if (body.length > 0) {
@@ -19,10 +17,6 @@ export async function POST(request: NextRequest) {
                 mode: "payment",
                 payment_method_types: ["card"],
                 billing_address_collection: "auto",
-                // shipping_options: [
-                //   { shipping_rate: "shr_1NJgGfFFOcRRviB5IKHisAI1" },
-                //   { shipping_rate: "shr_1NJgFzFFOcRRviB5RNlrrnhM" },
-                // ],
                 invoice_creation: {
                     enabled: true,
                 },
@@ -35,7 +29,7 @@ export async function POST(request: NextRequest) {
                             },
                             unit_amount: item.price * 100,
                         },
-                        quantity: 1,
+                        quantity: item.quantity,
                         adjustable_quantity: {
                             enabled: true,
                             minimum: 1,

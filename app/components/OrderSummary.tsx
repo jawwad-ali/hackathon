@@ -3,14 +3,14 @@ import toast, { Toaster } from "react-hot-toast";
 
 import getStipePromise from "../../lib/stripe";
 
-const OrderSummary = ({ cartProducts }: any) => {
-  // Total Amount that customer has to pay
-  let price = cartProducts.map((price: any) => parseInt(price.price));
+import { useSelector } from "react-redux";
 
-  let sum = 0;
-  for (let i = 0; i < price.length; i++) {
-    sum += price[i];
-  }
+import { selectItems, selectQuantity, selectTotal } from "../../slices/basketSlice";
+
+const OrderSummary = () => {
+  const total = useSelector(selectTotal);
+  const quantity = useSelector(selectQuantity)
+  const cartItems = useSelector(selectItems)
 
   // Stripe Checkout
   const handleCheckout = async () => {
@@ -19,7 +19,7 @@ const OrderSummary = ({ cartProducts }: any) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       cache: "no-cache",
-      body: JSON.stringify(cartProducts), 
+      body: JSON.stringify(cartItems),
     });
 
     const data = await response.json();
@@ -38,12 +38,12 @@ const OrderSummary = ({ cartProducts }: any) => {
 
       <div className="flex justify-between pb-4">
         <label>Quantity:</label>
-        <span className="text-base font-bold">{cartProducts.length}</span>
+        <span className="text-base font-bold">{quantity}</span>
       </div>
 
       <div className="flex justify-between">
         <label>Sub Total:</label>
-        <p className="text-base font-bold">${sum}.00</p>
+        <p className="text-base font-bold">${total}.00</p>
       </div>
 
       <button

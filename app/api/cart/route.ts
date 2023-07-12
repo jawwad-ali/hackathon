@@ -35,8 +35,6 @@ export async function POST(request: NextRequest) {
         if (body.prod_id) {
             const res = await db.insert(cartTable).values(
                 { quantity: body.quantity, user_id: cookies().get('user_id')?.value as string, prod_id: body.prod_id }).returning();
-
-            console.log('ROUTE RES', res)
         }
         return NextResponse.json('data added')
     }
