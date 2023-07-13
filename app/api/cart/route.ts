@@ -29,14 +29,14 @@ export async function POST(request: NextRequest) {
 
     if (!cookies().get("user_id")) {
         setCookies.set("user_id", uid);
-    }
+    } 
 
     try {
         if (body.prod_id) {
-            await db.insert(cartTable).values(
+            await db.insert(cartTable).values( 
                 { quantity: body.quantity, user_id: cookies().get('user_id')?.value as string, prod_id: body.prod_id }).returning();
         }
-        return NextResponse.json('data added')
+        return NextResponse.json('data added') 
     }
     catch (err) {
         if (body.prod_id) {

@@ -15,12 +15,15 @@ import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 
 import { useSelector } from "react-redux";
-import type { RootState } from "../../store/store";
+
+import { selectItems } from "../../slices/basketSlice";
 
 const sora = Sora({ subsets: ["latin"] });
 
 const NavigationBar = () => {
-  const count = useSelector((state: RootState) => state.basket.items);
+  // @ts-ignore
+  // const count = useSelector((state: RootState) => state?.basket?.items);
+  const count = useSelector(selectItems);
 
   return (
     <Navbar fluid rounded className="border-none max-w-6xl mx-auto">

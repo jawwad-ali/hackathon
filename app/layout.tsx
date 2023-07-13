@@ -1,7 +1,11 @@
 import "./globals.css";
+
+import React from "react";
+
 import FlowbiteContext from "./context/FlowbiteContext";
 
 import NavigationBar from "./components/NavigationBar";
+
 import Footer from "./components/Footer";
 
 import { ClerkProvider } from "@clerk/nextjs";
@@ -13,6 +17,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <head>
@@ -25,11 +30,9 @@ export default async function RootLayout({
         <ClerkProvider>
           <Providers>
             <FlowbiteContext>
-              <NavigationBar />
-
-              {children}
-
-              <Footer />
+                <NavigationBar />
+                {children}
+                <Footer />
             </FlowbiteContext>
           </Providers>
         </ClerkProvider>
