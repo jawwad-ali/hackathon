@@ -31,7 +31,7 @@ interface CategoryProps {
   _id: string;
   category: string;
   image: string;
-  count:number
+  count: number;
 }
 
 const Page = ({ params }: { params: { productId: string } }) => {
@@ -62,14 +62,6 @@ const Page = ({ params }: { params: { productId: string } }) => {
 
   // Add To Cart
   const handleCart = async () => {
-    await fetch("/api/cart", {
-      method: "POST",
-      body: JSON.stringify({
-        prod_id: data[0]?._id,
-        quantity: count,
-      }),
-    });
-
     dispatch(
       addToBasket(
         data.map((d: CategoryProps) => ({
@@ -84,6 +76,14 @@ const Page = ({ params }: { params: { productId: string } }) => {
       )
     );
     toast.success(`${[count, data[0]?.name]} added to cart`);
+
+    await fetch("/api/cart", {
+      method: "POST",
+      body: JSON.stringify({
+        prod_id: data[0]?._id,
+        quantity: count,
+      }),
+    });
   };
 
   return (
