@@ -13,10 +13,10 @@ interface CategoryProps {
   price: string;
   name: string;
   _id: string;
-  category: string; 
+  category: string;
   image: string;
 }
- 
+
 const sora = Sora({
   subsets: ["latin"],
   display: "swap",
@@ -43,13 +43,21 @@ const Page = async ({ params }: { params: { category: string } }) => {
     return builder.image(source);
   }
 
+  if (!prod.length) {
+    return (
+      <div className="h-screen flex justify-center items-center text-center font-bold">
+        <h1>{`No Products are Available for ${params.category}`} </h1>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <div className="min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16">
+      <div className="min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 mb-6">
         {prod.map((data: CategoryProps, i: any) => (
           <div
             key={i}
-            className="flex flex-col h-full  mx-auto hover:cursor-pointer pb-4 lg:pb-0"
+            className="flex flex-col h-full mx-auto hover:cursor-pointer pb-4 lg:pb-0 lg:mb-6"
           >
             <Link href={`/category/${params.category}/product/${data._id}`}>
               <div className="lg:border lg:border-gray-400">
