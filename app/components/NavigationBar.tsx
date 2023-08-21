@@ -15,15 +15,12 @@ import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 
 import { useSelector } from "react-redux";
-
-import { selectItems } from "../../slices/basketSlice";
+import { RootState } from "../../store/store";
 
 const sora = Sora({ subsets: ["latin"] });
 
 const NavigationBar = () => {
-  // @ts-ignore
-  // const count = useSelector((state: RootState) => state?.basket?.items);
-  const count = useSelector(selectItems);
+  const count = useSelector((state: RootState) => state?.basket?.items);
 
   return (
     <Navbar fluid rounded className="border-none max-w-6xl mx-auto">
@@ -39,7 +36,7 @@ const NavigationBar = () => {
           placeholder="Search"
           required
           type="text"
-          className="hidden lg:block"
+          className="hidden lg:block" 
         />
 
         <div
@@ -49,7 +46,7 @@ const NavigationBar = () => {
           <Link href="/cart">
             <FaCartPlus className="text-gray-500 text-2xl" />
             <span className="absolute -top-1 right-2 text-xs text-white bg-red-500 p-0.5 px-1 rounded-full flex items-center justify-center font-semibold">
-              {count.length}
+              {count?.length}
             </span>
           </Link>
         </div>

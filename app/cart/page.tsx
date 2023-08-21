@@ -8,16 +8,16 @@ import { Sora } from "next/font/google";
 
 import OrderSummary from "../components/OrderSummary";
 
-import { selectItems } from "../../slices/basketSlice";
+import { RootState } from "../../store/store";
 
 interface ProductProps {
+  product_type: string;
+  price: string;
   name: string;
-  price: number | string;
+  _id: string;
   category: string;
   image: string;
-  quantity: number | string;
-  product_type: string;
-  _id: number | string;
+  quantity: string;
 }
 
 const sora = Sora({
@@ -26,23 +26,25 @@ const sora = Sora({
 });
 
 const Cart = () => {
-  const products = useSelector(selectItems);
+  const products = useSelector((state: RootState) =>
+    state?.basket?.items.flat()
+  );
 
   return (
     <div>
       <h2 className={`${sora.className} text-2xl font-bold pt-8`}>
         {products.length > 0 ? "Shopping Cart" : "Your Bag is empty"}
-      </h2>
+      </h2> 
 
       <div
         className={`flex flex-col lg:flex-row ${sora.className} block lg:max-w-6xl mx-2 lg:mx-auto mb-8`}
       >
         <div className="flex flex-col w-full">
-          <div className="lg:w-8/12 w-full">
+          <div className="lg:w-10/12 my-3 w-full">
             {products?.map((prod: ProductProps, i: number) => (
               <>
                 <CartData
-                  key={i}
+                  key={i} 
                   name={prod?.name}
                   price={prod?.price}
                   category={prod?.category}
@@ -52,12 +54,12 @@ const Cart = () => {
                   id={prod?._id}
                 />
               </>
-            ))}
-          </div>
+            ))} 
+          </div>  
         </div>
 
         {/* Order Summary */}
-        <div className="w-4/12">
+        <div className="lg:w-4/12 w-full px-6">
           <OrderSummary />
         </div>
       </div>

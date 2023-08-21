@@ -8,11 +8,11 @@ const initialState: CartProps = {
     items: []
 }
 
-export const basketSlice = createSlice({ 
+export const basketSlice = createSlice({
     name: "basket",
     initialState,
     reducers: {
-        addToBasket: (state, action) => { 
+        addToBasket: (state, action) => {
             state.items = [...state.items, action.payload]
         },
         removeFromBasket: (state, action) => {
@@ -20,7 +20,7 @@ export const basketSlice = createSlice({
             const index = state.items.flat().findIndex(
                 (basketIndex) => basketIndex._id === action.payload
             )
-            console.log("index", index) 
+            console.log("index", index)
 
             let newBasket = [...state.items].flat()
             console.log('newBasket', newBasket)
@@ -40,8 +40,6 @@ export const basketSlice = createSlice({
 export const { addToBasket, removeFromBasket } = basketSlice.actions
 export default basketSlice.reducer
 
-// export const selectTotal = (state:any) => state.basket.items.flat().reduce((total:any , item:any) => parseInt(total + item.price) , 0) 
-export const selectTotal = (state:any) => parseFloat(state.basket.items.flat().reduce((total:any , item:any) => parseFloat(total) + parseFloat(item.price), 0));
-export const selectQuantity = (state:any) => parseFloat(state.basket.items.flat().reduce((total:any , item:any) => parseFloat(total) + parseFloat(item.quantity), 0));
+export const selectTotal = (state: any) => parseFloat(state.basket.items.flat().reduce((total: any, item: any) => parseFloat(total) + parseFloat(item.price), 0));
 
-export const selectItems = (state: any) => state.basket.items.flat()
+export const selectQuantity = (state: any) => parseFloat(state.basket.items.flat().reduce((total: any, item: any) => parseFloat(total) + parseFloat(item.quantity), 0));

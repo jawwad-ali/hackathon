@@ -1,17 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const key = process.env['STRIPE_SECRET_KEY'] || "";
+import { auth } from "@clerk/nextjs";
 
-const stripe = new Stripe(key, {
-    apiVersion: "2022-11-15",
+const key = process.env['STRIPE_SECRET_KEY'] || "";
+const stripe = new Stripe(key, { 
+    apiVersion: "2022-11-15", 
 });
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest) { 
+    const { userId } = auth()
     const body = await request.json();
 
+    console.log("payment body ==>", body)
+    console.log("userID", userId) 
     try {
         if (body.length > 0) {
+            // creating customer
+            const customer = await stripe.customers.create({
+                metadata: { 
+                    userId: userId, 
+                    cartItems: JSON.stringify(body.cartItems)
+                }
+            })
+            console.log('customer', customer.id)
+
             const session = await stripe.checkout.sessions.create({
                 submit_type: "pay",
                 mode: "payment",
@@ -40,12 +53,14 @@ export async function POST(request: NextRequest) {
                 phone_number_collection: {
                     enabled: true,
                 },
+                customer: customer.id, 
                 success_url: `${request.headers.get("origin")}/success`,
                 cancel_url: `${request.headers.get("origin")}/?canceled=true`,
             });
-            // Remove items from the body array
-            // body.length = 0;
+            // return session
+            console.log("customerID from route",customer.id)
             return NextResponse.json({ session });
+
         } else {
             return NextResponse.json({ message: "No Data Found" });
         }

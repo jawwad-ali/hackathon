@@ -31,8 +31,9 @@ const CartData = ({ name, price, picture, product_type, id }: any) => {
         {picture && (
           <div className="flex items-center justify-center">
             <Image
+              className="rounded-md"
               priority
-              src={urlFor(picture).width(170).height(225)?.url()}
+              src={urlFor(picture).width(220).height(300)?.url()}
               alt="Product Image"
               width={170}
               height={225}

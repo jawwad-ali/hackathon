@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/button";
 
 import { ShoppingCart, LucideShoppingBag } from "lucide-react";
 import Link from "next/link";
-
+ 
 const sora = Sora({
   display: "swap",
   subsets: ["latin"],
@@ -14,12 +14,12 @@ const Page = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center mx-4 -mt-14 lg:mx-0 lg:mt-0">
       <div className="border rounded-3xl bg-[#f1f1f1] lg:p-24 p-12 flex flex-col items-center justify-center text-center">
-        <LucideShoppingBag className="h-20 w-20 text-green-600" />
+        <LucideShoppingBag className="h-20 w-20 text-green-600" /> 
         <h1
           className={`${sora.className} pt-8 font-bold text-4xl lg:text-6xl leading-[55px] text-[#212121]`}
         >
           Thank you for your order!
-        </h1>
+        </h1> 
 
         <Link href="/">
           <Button
