@@ -31,7 +31,7 @@ const Cart = () => {
   );
 
   return (
-    <div>
+    <div className="max-w-6xl mx-auto min-h-screen">
       <h2 className={`${sora.className} text-2xl font-bold pt-8`}>
         {products.length > 0 ? "Shopping Cart" : "Your Bag is empty"}
       </h2> 
