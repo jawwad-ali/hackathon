@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
+import { Loader2 } from "lucide-react";
+
 import toast, { Toaster } from "react-hot-toast";
 
 import { client } from "../../../../../sanity/lib/client";
@@ -49,7 +51,7 @@ const Page = ({ params }: { params: { productId: string } }) => {
 
   useEffect(() => {
     getProductsById().then((data) => setData(data));
-  }, [getProductsById]);
+  }, []);
 
   // For fetching image
   const builder = imageUrlBuilder(client);
@@ -88,11 +90,11 @@ const Page = ({ params }: { params: { productId: string } }) => {
 
   return (
     <div>
-      <div className="min-h-screen mt-12 lg:mt-24 relative mb-6">
+      <div className="max-w-6xl mx-auto min-h-screen mt-12 lg:mt-24 relative mb-6">
         <div className="flex lg:flex-row flex-col mx-4 lg:mx-0">
-          <div className="hidden lg:block">
+          <div className="hidden lg:block -mt-12">
             {/* Small Size Image */}
-            {data[0]?.image && (
+            {data[0]?.image ? (
               <Image
                 src={urlFor(data[0]?.image).width(100)?.url()}
                 alt="Product Image"
@@ -100,11 +102,15 @@ const Page = ({ params }: { params: { productId: string } }) => {
                 height={100}
                 priority
               />
+            ) : (
+              <div className="flex justify-center items-center">
+                <Loader2 className="text-black loader" />
+              </div>
             )}
           </div>
-          {/* BIg Size Image */}
-          <div className="lg:ml-10 flex items-center justify-center">
-            {data[0]?.image && (
+          {/* Big Size Image */}
+          <div className="lg:ml-10 flex items-center justify-center h-[85vh] lg:-mt-11 -mt-14 lg:w-[45%]">
+            {data[0]?.image ? (
               <Image
                 priority
                 src={urlFor(data[0]?.image).width(500)?.url()}
@@ -112,6 +118,10 @@ const Page = ({ params }: { params: { productId: string } }) => {
                 width={500}
                 height={500}
               />
+            ) : (
+              <div className="flex justify-center items-center text-7xl">
+                <Loader2 className="text-black loader" />
+              </div>
             )}
           </div>
           {/* Name And Product Type */}

@@ -4,7 +4,7 @@
 
 .sizeButtonHover:hover {
   box-shadow: 0 14px 58px 0 hsla(240, 5%, 41%, 0.5);
-}
+} 
 
 @layer base {
   :root {
@@ -81,5 +81,17 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loader {
+    animation: rotate 1s linear infinite;
   }
 }

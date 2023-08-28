@@ -53,7 +53,7 @@ const Page = async ({ params }: { params: { category: string } }) => {
 
   return (
     <div>
-      <div className="min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 mb-6">
+      <div className="max-w-6xl mx-auto min-h-screen grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 mt-16 mb-6">
         {prod.map((data: CategoryProps, i: any) => (
           <div
             key={i}

@@ -26,7 +26,7 @@ export default async function RootLayout({
         <meta name="description" content="Hackathon Project" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="max-w-6xl mx-auto min-h-screen">
+      <body className="">
         <ClerkProvider>
           <Providers>
             <FlowbiteContext>
