@@ -20,17 +20,11 @@ export const basketSlice = createSlice({
             const index = state.items.flat().findIndex(
                 (basketIndex) => basketIndex._id === action.payload
             )
-            console.log("index", index)
 
             let newBasket = [...state.items].flat()
-            console.log('newBasket', newBasket)
 
             if (index >= 0) {
                 newBasket.splice(index, 1)
-                console.log('newBasket', newBasket)
-            }
-            else {
-                console.log(`Product does not exist`)
             }
             state.items = newBasket
         }

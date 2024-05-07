@@ -1,17 +1,13 @@
 import { client } from "../../../sanity/lib/client";
-
 import imageUrlBuilder from "@sanity/image-url";
-
 import Image from "next/image";
-
 import { Sora } from "next/font/google";
-
 import Link from "next/link";
 
 interface CategoryProps {
   product_type: string;
   price: string;
-  name: string;
+  name: string; 
   _id: string;
   category: string;
   image: string;
@@ -64,7 +60,7 @@ const Page = async ({ params }: { params: { category: string } }) => {
                 <Image
                   src={urlFor(data.image).width(250).url()}
                   alt="Product Image"
-                  loading="lazy"
+                  loading="eager"
                   width={250}
                   height={250}
                 />

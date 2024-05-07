@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Logo from "../images/logo.webp";
-
 import { Sora } from "next/font/google";
 
 interface FooterProps {

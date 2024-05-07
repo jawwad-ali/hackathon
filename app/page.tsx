@@ -8,20 +8,10 @@ export default async function Home() {
   return (
     <div className='max-w-6xl mx-auto min-h-screen'>
       <HeroSection />
-      <Promotions />
+      <Promotions /> 
       <Products />
       <Features /> 
       <Newsletter /> 
     </div>
   );
 }
-
-
-
-// Nextjs  - Framework
-// Tailwind CSS - styling
-
-// Vercel - For Database
-// Drizzle ORM - For Type definition
-
-// Stripe Payment

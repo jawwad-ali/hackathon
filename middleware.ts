@@ -1,13 +1,16 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-import { pathToRegexp } from "path-to-regexp"
+const isProtectedRoute = createRouteMatcher([
+  '/category(.*)',
+  '/forum(.*)',
+]);
 
-const regexp = pathToRegexp("/category/:female");
-
-export default authMiddleware({
-  publicRoutes: ["/", regexp, 'checkout.stripe.com'],
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) {
+    auth().protect();
+  }
 });
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };

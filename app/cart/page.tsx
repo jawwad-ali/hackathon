@@ -1,13 +1,8 @@
 "use client";
-
 import { useSelector } from "react-redux";
-
 import CartData from "../components/CartData";
-
 import { Sora } from "next/font/google";
-
 import OrderSummary from "../components/OrderSummary";
-
 import { RootState } from "../../store/store";
 
 interface ProductProps {
